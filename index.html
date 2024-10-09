@@ -50,6 +50,7 @@
             color: white;
             cursor: pointer;
             transition: transform 0.2s, background-color 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
         }
         .compliment-button:hover {
             background-color: #7a3e93;
@@ -84,7 +85,7 @@
             content: '💜'; /* Purple heart emoji */
             position: absolute;
             left: 0;
-            font-size: 1.5em;
+            font-size: 1.2em; /* Smaller hearts */
         }
         footer {
             text-align: center;
@@ -92,6 +93,9 @@
             font-size: 1.2em;
             color: #8e44ad;
             position: relative;
+        }
+        footer p {
+            margin: 0;
         }
     </style>
 </head>
@@ -137,7 +141,8 @@
 </div>
 
 <footer>
-    With all my love, always yours.<br>Yasir
+    <p>With all my love, always yours.</p>
+    <p>Yasir</p>
 </footer>
 
 <script>
