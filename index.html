@@ -86,7 +86,7 @@
                 opacity: 0.5;
             }
         }
-        .message-board {
+        .notes {
             margin: 50px auto;
             padding: 30px;
             background: rgba(255, 255, 255, 0.2);
@@ -94,11 +94,34 @@
             max-width: 800px;
             text-align: center;
         }
-        .message-board h2 {
+        .notes h2 {
             font-size: 2.5em;
             color: #6a2c91; /* Purple */
         }
-        .messages {
+        .notes textarea {
+            width: 100%;
+            height: 100px;
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid #6a2c91; /* Purple border */
+            resize: none;
+        }
+        .add-note-button {
+            margin-top: 10px;
+            font-size: 1.5em;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            background-color: #6a2c91; /* Purple */
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .add-note-button:hover {
+            background-color: #8e44ad; /* Darker Purple */
+        }
+        .notes-list {
             margin-top: 20px;
             font-size: 1.2em;
             text-align: left;
@@ -141,10 +164,13 @@
     </ul>
 </div>
 
-<div class="message-board">
-    <h2>Message Board for Khadijah:</h2>
-    <div class="messages" id="messages">
-        <p>Leave your sweet messages for Khadijah!</p>
+<div class="notes">
+    <h2>Thoughts and Notes for Khadijah:</h2>
+    <textarea id="noteInput" placeholder="Write your notes and thoughts here..."></textarea>
+    <br>
+    <button class="add-note-button" onclick="addNote()">Add Note</button>
+    <div class="notes-list" id="notesList">
+        <p>Your notes will appear here:</p>
     </div>
 </div>
 
@@ -176,17 +202,21 @@
     // Initialize random compliment on page load
     window.onload = setRandomCompliment;
 
-    // Add message to the message board
-    function addMessage(message) {
-        const messagesDiv = document.getElementById('messages');
-        const newMessage = document.createElement('p');
-        newMessage.innerText = message;
-        messagesDiv.appendChild(newMessage);
-    }
+    // Add note to the notes section
+    function addNote() {
+        const noteInput = document.getElementById('noteInput');
+        const notesList = document.getElementById('notesList');
 
-    // Example messages to show on the board
-    addMessage("Khadijah, you light up my world!");
-    addMessage("Every moment with you is a treasure!");
+        if (noteInput.value.trim() === '') {
+            alert('Please write something before adding a note.');
+            return; // Exit the function if the input is empty
+        }
+
+        const newNote = document.createElement('p'); // Create a new paragraph element
+        newNote.innerText = noteInput.value; // Set the text of the paragraph to the note
+        notesList.appendChild(newNote); // Add the new note to the notes list
+        noteInput.value = ''; // Clear the input field after adding the note
+    }
 </script>
 </body>
 </html>
