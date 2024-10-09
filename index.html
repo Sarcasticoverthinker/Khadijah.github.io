@@ -6,217 +6,203 @@
     <title>For My Beautiful Princess Khadijah</title>
     <style>
         body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f3f3;
             margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background: #f3e8ff; /* Light purple background */
-            color: #4b0082; /* Dark purple text */
+            padding: 0;
+            color: #444;
         }
-        header {
-            height: 100vh;
+        h1 {
+            text-align: center;
+            color: #6a0dad; /* Default Purple */
+            margin-top: 20px;
+        }
+        h2 {
+            color: #6a0dad; /* Default Purple */
+        }
+        #compliments {
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
-            text-align: center;
-            background: #9b59b6; /* Purple */
-            color: #fff;
+            margin: 20px;
         }
-        header h1 {
-            font-size: 4em;
-            margin: 0;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-        }
-        header p {
-            font-size: 1.5em;
-            margin-top: 10px;
-            color: #e5e1f4; /* Light purple */
-        }
-        .compliments {
-            margin: 50px auto;
-            text-align: center;
-        }
-        .compliment-button {
-            font-size: 1.5em;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 10px;
-            background-color: #6a2c91; /* Purple */
-            color: white;
-            cursor: pointer;
+        .compliment {
+            margin: 5px;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #e0c9e0; /* Light Purple */
             transition: background-color 0.3s;
-        }
-        .compliment-button:hover {
-            background-color: #8e44ad; /* Darker Purple */
-        }
-        .about {
-            margin: 50px auto;
-            padding: 30px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 15px;
-            max-width: 800px;
-            text-align: left;
-        }
-        .about h2 {
-            font-size: 2.5em;
-            color: #6a2c91; /* Purple */
+            cursor: pointer;
+            width: 80%;
             text-align: center;
         }
-        .about ul {
-            list-style: none;
-            padding: 0;
+        .compliment:hover {
+            background-color: #d9a0d9; /* Darker Purple on hover */
         }
-        .about li {
-            font-size: 1.4em;
-            margin: 15px 0;
-            position: relative;
-            padding-left: 35px;
+        #notesSection {
+            margin: 20px;
+            padding: 10px;
+            background-color: #f2e6f2; /* Light Purple Background */
+            border-radius: 8px;
         }
-        .about li:before {
-            content: '💜';
-            position: absolute;
-            left: 0;
-            font-size: 1.2em; /* Smaller hearts */
-            animation: blink 1s infinite;
+        #notesList {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 8px;
+            border: 1px solid #d3d3d3;
+            min-height: 50px;
+        }
+        .note {
+            margin: 5px 0;
+            padding: 5px;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+        }
+        #colorScheme {
+            margin: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        #colorScheme select {
+            padding: 5px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        #hearts {
+            text-align: center;
+            font-size: 24px;
+            animation: blink 1.5s infinite;
         }
         @keyframes blink {
-            0%, 100% {
-                opacity: 1;
-            }
-            50% {
-                opacity: 0.5;
-            }
-        }
-        .notes {
-            margin: 50px auto;
-            padding: 30px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 15px;
-            max-width: 800px;
-            text-align: center;
-        }
-        .notes h2 {
-            font-size: 2.5em;
-            color: #6a2c91; /* Purple */
-        }
-        .notes textarea {
-            width: 100%;
-            height: 100px;
-            margin-top: 10px;
-            padding: 10px;
-            border-radius: 10px;
-            border: 1px solid #6a2c91; /* Purple border */
-            resize: none;
-        }
-        .add-note-button {
-            margin-top: 10px;
-            font-size: 1.5em;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 10px;
-            background-color: #6a2c91; /* Purple */
-            color: white;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .add-note-button:hover {
-            background-color: #8e44ad; /* Darker Purple */
-        }
-        .notes-list {
-            margin-top: 20px;
-            font-size: 1.2em;
-            text-align: left;
-        }
-        footer {
-            text-align: center;
-            padding: 20px;
-            font-size: 1.2em;
-            color: #4b0082; /* Dark purple */
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
         }
     </style>
 </head>
 <body>
-
-<header>
     <h1>For My Beautiful Princess Khadijah</h1>
-    <p>The epitome of beauty and grace, unmatched in the entire world.</p>
-</header>
+    <div id="hearts">💜💜💜💜💜</div>
+    <h2>The epitome of beauty and grace</h2>
+    <h2>Unmatched in the entire world</h2>
 
-<section class="compliments">
-    <h2>Responsive Compliment:</h2>
-    <button class="compliment-button" id="complimentButton"></button>
-</section>
-
-<div class="about">
-    <h2>Fun Facts About You:</h2>
-    <p>Here are some delightful insights into your wonderful self:</p>
-    <ul>
-        <li><strong>Favorite Color:</strong> Purple</li>
-        <li><strong>Favorite Drink:</strong> Oreo Milkshake</li>
-        <li><strong>Favorite Food:</strong> Butter Chicken</li>
-        <li><strong>Loves:</strong> Laughing with friends and loved ones</li>
-        <li><strong>Enjoys:</strong> Sorting things out, bringing order to chaos</li>
-        <li><strong>Adorable Relationship:</strong> Loves her baby brother, despite his attitude</li>
-        <li><strong>Work Habit:</strong> Loves talking to someone while working</li>
-        <li><strong>Favorite Sounds:</strong> Cherishes the soothing sounds of babies</li>
-        <li><strong>Grammar Enthusiast:</strong> A proud grammar Nazi, always correcting</li>
-        <li><strong>Chatterbox:</strong> A true yapper at heart, always ready to chat</li>
-        <li><strong>Makeup Lover:</strong> Especially enjoys lip gloss and eyeliner</li>
-    </ul>
-</div>
-
-<div class="notes">
-    <h2>Thoughts and Notes for Khadijah:</h2>
-    <textarea id="noteInput" placeholder="Write your notes and thoughts here..."></textarea>
-    <br>
-    <button class="add-note-button" onclick="addNote()">Add Note</button>
-    <div class="notes-list" id="notesList">
-        <p>Your notes will appear here:</p>
+    <div id="compliments">
+        <div class="compliment" onclick="setRandomCompliment()"></div>
     </div>
-</div>
 
-<footer>
-    <p>With all my love, always yours.</p>
-    <p>Yasir</p>
-</footer>
+    <h2>Fun Facts About You:</h2>
+    <div id="notesSection">
+        <h3>Your Notes:</h3>
+        <div id="notesList"></div>
+        <input type="text" id="noteInput" placeholder="Write your thoughts here..." />
+        <button onclick="addNote()">Add Note</button>
+    </div>
 
-<script>
-    const compliments = [
-        "Khadijah, you are the most beautiful girl in the world.",
-        "In my eyes, you shine as the most stunning girl.",
-        "I truly enjoy every moment we spend talking Khadijah.",
-        "You're not just beautiful on the outside; your soul is radiant.",
-        "I miss you the moment our conversation ends.",
-        "Khadijah, your kindness and warmth is rare.",
-        "Every time I see you, my heart skips a beat.",
-        "You are wonderful!!",
-        "You are an annoying cow as well 🙄🙄🙄."
-    ];
+    <div id="colorScheme">
+        <label for="colorSelect">Choose a Color Scheme:</label>
+        <select id="colorSelect" onchange="changeColorScheme(this.value)">
+            <option value="purple">Purple</option>
+            <option value="blue">Blue</option>
+            <option value="pink">Pink</option>
+            <option value="green">Green</option>
+        </select>
+    </div>
 
-    // Set a random compliment on page load
-    function setRandomCompliment() {
-        const complimentButton = document.getElementById('complimentButton');
-        const randomIndex = Math.floor(Math.random() * compliments.length);
-        complimentButton.innerText = compliments[randomIndex];
-    }
+    <script>
+        const compliments = [
+            "Khadijah, you are the most beautiful girl in the world.",
+            "In my eyes, you shine as the most stunning girl.",
+            "I truly enjoy every moment we spend talking, Khadijah.",
+            "You're not just beautiful on the outside; your soul is radiant.",
+            "I miss you the moment our conversation ends.",
+            "Khadijah, your kindness and warmth are rare.",
+            "Every time I see you, my heart skips a beat.",
+            "You are wonderful!!",
+            "You are an annoying cow as well 🙄🙄🙄."
+        ];
 
-    // Initialize random compliment on page load
-    window.onload = setRandomCompliment;
-
-    // Add note to the notes section
-    function addNote() {
-        const noteInput = document.getElementById('noteInput');
-        const notesList = document.getElementById('notesList');
-
-        if (noteInput.value.trim() === '') {
-            alert('Please write something before adding a note.');
-            return; // Exit the function if the input is empty
+        function setRandomCompliment() {
+            const randomIndex = Math.floor(Math.random() * compliments.length);
+            document.querySelector('.compliment').innerText = compliments[randomIndex];
         }
 
-        const newNote = document.createElement('p'); // Create a new paragraph element
-        newNote.innerText = noteInput.value; // Set the text of the paragraph to the note
-        notesList.appendChild(newNote); // Add the new note to the notes list
-        noteInput.value = ''; // Clear the input field after adding the note
-    }
-</script>
+        // Load notes from local storage on page load
+        window.onload = function() {
+            setRandomCompliment();
+            loadNotes();
+        };
+
+        // Load notes from local storage and display them
+        function loadNotes() {
+            const notesList = document.getElementById('notesList');
+            const notes = JSON.parse(localStorage.getItem('notes')) || []; // Retrieve notes or initialize as empty array
+            notes.forEach(note => {
+                const newNote = document.createElement('div');
+                newNote.className = 'note';
+                newNote.innerText = note;
+                notesList.appendChild(newNote);
+            });
+        }
+
+        // Add note to the notes section and save to local storage
+        function addNote() {
+            const noteInput = document.getElementById('noteInput');
+            const notesList = document.getElementById('notesList');
+
+            if (noteInput.value.trim() === '') {
+                alert('Please write something before adding a note.');
+                return; // Exit the function if the input is empty
+            }
+
+            const newNote = document.createElement('div');
+            newNote.className = 'note';
+            newNote.innerText = noteInput.value;
+            notesList.appendChild(newNote);
+
+            // Save the note to local storage
+            const notes = JSON.parse(localStorage.getItem('notes')) || []; // Retrieve existing notes
+            notes.push(noteInput.value); // Add the new note to the array
+            localStorage.setItem('notes', JSON.stringify(notes)); // Save the updated notes array to local storage
+
+            noteInput.value = ''; // Clear the input field after adding the note
+        }
+
+        // Change the color scheme based on selection
+        function changeColorScheme(color) {
+            let bgColor, textColor, complimentBgColor;
+            switch (color) {
+                case 'purple':
+                    bgColor = '#f8f3f3';
+                    textColor = '#6a0dad';
+                    complimentBgColor = '#e0c9e0';
+                    break;
+                case 'blue':
+                    bgColor = '#e0f7fa';
+                    textColor = '#00796b';
+                    complimentBgColor = '#b2ebf2';
+                    break;
+                case 'pink':
+                    bgColor = '#fce4ec';
+                    textColor = '#c2185b';
+                    complimentBgColor = '#f8bbd0';
+                    break;
+                case 'green':
+                    bgColor = '#e8f5e9';
+                    textColor = '#388e3c';
+                    complimentBgColor = '#c8e6c9';
+                    break;
+                default:
+                    bgColor = '#f8f3f3';
+                    textColor = '#6a0dad';
+                    complimentBgColor = '#e0c9e0';
+                    break;
+            }
+            document.body.style.backgroundColor = bgColor;
+            document.body.style.color = textColor;
+            document.querySelectorAll('.compliment').forEach(el => el.style.backgroundColor = complimentBgColor);
+            document.querySelector('h1').style.color = textColor;
+            document.querySelector('h2').style.color = textColor;
+        }
+    </script>
 </body>
 </html>
