@@ -6,120 +6,142 @@
     <title>For My Khadijah</title>
     <style>
         body {
-            background: linear-gradient(to right, #d4c0e1, #e3c9e3, #e9d9f2);
+            margin: 0;
             font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to bottom right, #d4c0e1, #e3c9e3, #e9d9f2);
             color: #fff;
+        }
+        header {
+            background: url('https://example.com/your-purple-background-image.jpg') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
             padding: 20px;
-            margin: 0;
+            position: relative;
+            z-index: 1;
         }
-        h1 {
-            font-size: 3.5em;
-            color: #6a0dad;
-            margin-bottom: 20px;
+        header h1 {
+            font-size: 4em;
+            margin: 0;
+            color: #fff;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
         }
-        h2 {
-            font-size: 2.5em;
-            color: #6a0dad;
-            margin-bottom: 15px;
-        }
-        p {
-            font-size: 1.4em;
-            margin-bottom: 40px;
-            line-height: 1.6;
-        }
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        li {
-            background: rgba(255, 255, 255, 0.2);
-            margin: 15px 0;
-            padding: 15px 20px;
-            border-radius: 15px;
+        header p {
             font-size: 1.5em;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            position: relative;
-            transition: all 0.3s ease-in-out;
+            margin-top: 10px;
+            color: #ffb3ff;
         }
-        li:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-5px);
+        .compliments {
+            margin: 50px auto;
+            width: 90%;
+            max-width: 800px;
+            text-align: center;
         }
-        li:before {
-            content: '💜'; /* Purple heart emoji */
-            position: absolute;
-            left: -40px;
-            font-size: 2em;
-            animation: bounce 1s infinite;
+        .compliment {
+            font-size: 1.5em;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.5s forwards;
         }
-        @keyframes bounce {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
         .about {
-            margin-top: 40px;
-            padding: 20px;
+            margin: 50px auto;
+            padding: 30px;
             background: rgba(255, 255, 255, 0.2);
             border-radius: 15px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 800px;
+            text-align: left;
+        }
+        .about h2 {
+            font-size: 2.5em;
+            color: #6a0dad;
+            text-align: center;
+        }
+        .about ul {
+            list-style: none;
+            padding: 0;
+        }
+        .about li {
+            font-size: 1.4em;
+            margin: 15px 0;
+            position: relative;
+            padding-left: 25px;
+        }
+        .about li:before {
+            content: '💜'; /* Purple heart emoji */
+            position: absolute;
+            left: 0;
+            font-size: 1.5em;
         }
         footer {
-            margin-top: 50px;
+            text-align: center;
+            padding: 20px;
             font-size: 1.2em;
             color: #6a0dad;
-        }
-        .highlight {
-            color: #ffb3ff;
-            font-weight: bold;
+            position: relative;
         }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>To My Beautiful Khadijah</h1>
-    <p>Every moment spent with you is a treasure. Here are just a few reasons why you're absolutely incredible:</p>
+
+<header>
+    <h1>For My Beautiful Khadijah</h1>
+    <p>You are a true treasure in my life.</p>
+</header>
+
+<section class="compliments">
+    <h2>Why You Are Amazing:</h2>
+    <div class="compliment" style="animation-delay: 0s;">Your heart is made of pure gold.</div>
+    <div class="compliment" style="animation-delay: 0.5s;">You make every moment unforgettable.</div>
+    <div class="compliment" style="animation-delay: 1s;">Your smile brightens my day.</div>
+    <div class="compliment" style="animation-delay: 1.5s;">You inspire me to be better every day.</div>
+    <div class="compliment" style="animation-delay: 2s;">Your laughter is the sweetest melody.</div>
+    <div class="compliment" style="animation-delay: 2.5s;">You radiate love and kindness.</div>
+    <div class="compliment" style="animation-delay: 3s;">I'm so lucky to have you in my life.</div>
+</section>
+
+<div class="about">
+    <h2>All About Khadijah</h2>
+    <p>Here’s what makes you special:</p>
     <ul>
-        <li>Your heart is made of pure gold, so kind and loving.</li>
-        <li>You have a unique way of making every moment unforgettable.</li>
-        <li>Your intelligence is both breathtaking and admirable.</li>
-        <li>Your smile brings warmth and joy to everyone around you.</li>
-        <li>You radiate strength, confidence, and grace in everything you do.</li>
-        <li>I'm incredibly lucky to be loved by someone as amazing as you.</li>
-        <li>You have a natural beauty that shines from within and lights up the room.</li>
-        <li>Your laugh is the sweetest sound in the world, and it makes my heart flutter.</li>
-        <li>You inspire me to be the best version of myself every day.</li>
+        <li><strong>Favorite Color:</strong> Purple</li>
+        <li><strong>Favorite Drink:</strong> Oreo Milkshake</li>
+        <li><strong>Favorite Food:</strong> Butter Chicken</li>
+        <li><strong>Loves:</strong> Laughing with friends and loved ones</li>
+        <li><strong>Enjoys:</strong> Sorting things out, bringing order to chaos</li>
+        <li><strong>Adorable Relationship:</strong> Loves her baby brother, despite his attitude</li>
+        <li><strong>Not a Fan of:</strong> Being called "baby girl"</li>
+        <li><strong>Work Habit:</strong> Loves talking to someone while working</li>
+        <li><strong>Travel Dream:</strong> Admires the beauty of New Zealand</li>
+        <li><strong>Favorite Sounds:</strong> Cherishes the soothing sounds of babies</li>
+        <li><strong>Favorite Place:</strong> Ooty, where nature meets peace</li>
+        <li><strong>Gets Mad When:</strong> Called "T-shirt wali aunty" 😂</li>
+        <li><strong>Grammar Enthusiast:</strong> A proud grammar Nazi, always correcting</li>
+        <li><strong>Chatterbox:</strong> A true yapper at heart, always ready to chat</li>
+        <li><strong>Makeup Lover:</strong> Especially enjoys lip gloss and eyeliner</li>
     </ul>
+</div>
 
-    <div class="about">
-        <h2>All About Khadijah</h2>
-        <p>Here’s a glimpse into what makes you special:</p>
-        <ul>
-            <li><span class="highlight">Favorite Color:</span> Purple</li>
-            <li><span class="highlight">Favorite Drink:</span> Oreo Milkshake</li>
-            <li><span class="highlight">Favorite Food:</span> Butter Chicken</li>
-            <li><span class="highlight">Loves:</span> Laughing with people she likes</li>
-            <li><span class="highlight">Enjoys:</span> Sorting things out and finding solutions</li>
-            <li><span class="highlight">Adorable Relationship:</span> Loves her baby brother, even when he shows attitude</li>
-            <li><span class="highlight">Not a Fan of:</span> Being called "baby girl"</li>
-            <li><span class="highlight">Work Habit:</span> Loves talking to someone while doing work</li>
-            <li><span class="highlight">Travel Dream:</span> Admires New Zealand for its beauty</li>
-            <li><span class="highlight">Favorite Sounds:</span> Loves the soothing sounds of babies</li>
-            <li><span class="highlight">Favorite Place:</span> Ooty for its serene nature</li>
-            <li><span class="highlight">Gets Mad When:</span> Called "T-shirt wali aunty" 😂</li>
-            <li><span class="highlight">Grammar Enthusiast:</span> A proud grammar Nazi who appreciates the art of language</li>
-            <li><span class="highlight">Chatterbox:</span> A true yapper at heart, always ready to chat</li>
-            <li><span class="highlight">Makeup Lover:</span> Especially fond of lip gloss and eyeliner</li>
-        </ul>
-    </div>
+<footer>
+    With all my love, always yours.<br>Yasir
+</footer>
 
-    <footer>
-        With all my love, always yours.<br>Yasir
-    </footer>
+<script>
+    // JavaScript to animate the compliments
+    const compliments = document.querySelectorAll('.compliment');
+    compliments.forEach((compliment, index) => {
+        compliment.style.animationDelay = `${index * 0.5}s`;
+        compliment.style.opacity = '1';
+        compliment.style.transform = 'translateY(0)';
+    });
+</script>
+
 </body>
 </html>
