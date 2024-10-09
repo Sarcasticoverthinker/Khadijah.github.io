@@ -10,6 +10,7 @@
             font-family: 'Poppins', sans-serif;
             background: linear-gradient(to bottom right, #e6d6f7, #d2c6e0);
             color: #fff;
+            overflow: hidden; /* Prevents scroll due to audio control */
         }
         header {
             background: linear-gradient(to bottom right, #8e44ad, #5c4b8a);
@@ -40,15 +41,20 @@
             max-width: 800px;
             text-align: center;
         }
-        .compliment {
+        .compliment-button {
             font-size: 1.5em;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeIn 0.5s forwards;
+            padding: 15px 30px;
+            margin: 10px;
+            border: none;
+            border-radius: 10px;
+            background-color: #8e44ad;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.3s;
         }
-        @keyframes fadeIn {
-            0% { opacity: 0; transform: translateY(20px); }
-            100% { opacity: 1; transform: translateY(0); }
+        .compliment-button:hover {
+            background-color: #7a3e93;
+            transform: scale(1.1);
         }
         .about {
             margin: 50px auto;
@@ -81,11 +87,6 @@
             left: 0;
             font-size: 1.5em;
         }
-        .beach-icon {
-            width: 30px;
-            margin-right: 10px;
-            vertical-align: middle;
-        }
         footer {
             text-align: center;
             padding: 20px;
@@ -97,6 +98,11 @@
 </head>
 <body>
 
+<audio autoplay loop>
+    <source src="music.mp3" type="audio/mpeg"> <!-- Update this filename -->
+    Your browser does not support the audio tag.
+</audio>
+
 <header>
     <h1>For My Beautiful Khadijah</h1>
     <p>You are a true treasure in my life.</p>
@@ -104,13 +110,13 @@
 
 <section class="compliments">
     <h2>Why You Are Amazing:</h2>
-    <div class="compliment" style="animation-delay: 0s;">Your heart is made of pure gold.</div>
-    <div class="compliment" style="animation-delay: 0.5s;">You make every moment unforgettable.</div>
-    <div class="compliment" style="animation-delay: 1s;">Your smile brightens my day.</div>
-    <div class="compliment" style="animation-delay: 1.5s;">You inspire me to be better every day.</div>
-    <div class="compliment" style="animation-delay: 2s;">Your laughter is the sweetest melody.</div>
-    <div class="compliment" style="animation-delay: 2.5s;">You radiate love and kindness.</div>
-    <div class="compliment" style="animation-delay: 3s;">I'm so lucky to have you in my life.</div>
+    <button class="compliment-button" onclick="changeCompliment()">Your heart is made of pure gold.</button>
+    <button class="compliment-button" onclick="changeCompliment()">You make every moment unforgettable.</button>
+    <button class="compliment-button" onclick="changeCompliment()">Your smile brightens my day.</button>
+    <button class="compliment-button" onclick="changeCompliment()">You inspire me to be better every day.</button>
+    <button class="compliment-button" onclick="changeCompliment()">Your laughter is the sweetest melody.</button>
+    <button class="compliment-button" onclick="changeCompliment()">You radiate love and kindness.</button>
+    <button class="compliment-button" onclick="changeCompliment()">I'm so lucky to have you in my life.</button>
 </section>
 
 <div class="about">
@@ -141,11 +147,35 @@
 </footer>
 
 <script>
-    // JavaScript to animate the compliments
-    const compliments = document.querySelectorAll('.compliment');
-    compliments.forEach((compliment, index) => {
-        compliment.style.animationDelay = `${index * 0.5}s`;
-    });
+    const compliments = [
+        "Your heart is made of pure gold.",
+        "You make every moment unforgettable.",
+        "Your smile brightens my day.",
+        "You inspire me to be better every day.",
+        "Your laughter is the sweetest melody.",
+        "You radiate love and kindness.",
+        "I'm so lucky to have you in my life."
+    ];
+    
+    let currentIndex = 0;
+
+    function changeCompliment() {
+        const buttons = document.querySelectorAll('.compliment-button');
+        buttons.forEach((button, index) => {
+            button.style.display = 'none'; // Hide all buttons
+        });
+
+        currentIndex = (currentIndex + 1) % compliments.length; // Cycle through compliments
+        buttons[currentIndex].style.display = 'inline-block'; // Show the next compliment
+        buttons[currentIndex].innerText = compliments[currentIndex]; // Change text of the button
+        buttons[currentIndex].style.opacity = 1; // Reset opacity for fade-in effect
+        setTimeout(() => {
+            buttons[currentIndex].style.opacity = 0; // Start fade-out
+        }, 2000); // Fade-out duration
+    }
+
+    // Initialize by showing the first compliment button
+    document.querySelector('.compliment-button').style.opacity = 1; // Show first compliment
 </script>
 
 </body>
