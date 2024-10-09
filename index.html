@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>For My Beautiful Princess Khadijah</title>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
@@ -30,12 +29,12 @@
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
         }
         header p {
+            font-family: 'Playfair Display', serif; /* Romantic font for the paragraph */
             font-size: 1.5em;
             margin-top: 10px;
             color: #e5e1f4; /* Light purple */
-            font-family: 'Courier Prime', monospace; /* Typewriter font */
         }
-        .compliments, .affirmations, .typewriter {
+        .compliments, .affirmations {
             margin: 50px auto;
             text-align: center;
         }
@@ -146,8 +145,7 @@
 </head>
 <body>
 <header>
-    <h1 id="greeting"></h1> <!-- Custom Greeting will appear here -->
-    <p id="mainText">For My Beautiful Princess Khadijah</p> <!-- Original title text -->
+    <h1>For My Beautiful Princess Khadijah</h1>
     <p>The epitome of beauty and grace, unmatched in the entire world.</p>
 </header>
 
@@ -161,11 +159,6 @@
     <button class="button" onclick="changeAffirmation()">You are capable of achieving great things!</button>
 </section>
 
-<section class="typewriter">
-    <h2>Typewriter Message:</h2>
-    <div id="typewriterMessage" style="font-family: 'Courier Prime', monospace; font-size: 1.5em;"></div>
-</section>
-    
 <div class="about">
     <h2>Fun Facts About You:</h2>
     <p>Here are some delightful insights into your wonderful self:</p>
@@ -208,85 +201,67 @@
         "You are wonderful!!",
         "You are an annoying cow as well 🙄🙄🙄.",
         "and sour pickle as well 🙄🙄🙄.",
-        "Moti Moti Moti 🙄🙄🙄.
+        "Moti Moti Moti 🙄🙄🙄."
     ];
-
+    
+    const affirmations = [
+        "You are capable of achieving great things!",
+        "You radiate positivity and light.",
+        "You are worthy of love and respect.",
+        "You are stronger than you think.",
+        "Every day is a fresh start.",
+        "You have the power to create change.",
+        "Your potential is limitless.",
+        "You are loved and cherished.",
+        "You bring joy to those around you."
+    ];
+    
     let currentComplimentIndex = 0;
     let currentAffirmationIndex = 0;
 
     function changeCompliment() {
         const button = document.querySelector('.compliments .button');
-        currentComplimentIndex = (currentComplimentIndex + 1) % compliments.length;
-        button.textContent = compliments[currentComplimentIndex];
+        currentComplimentIndex = (currentComplimentIndex + 1) % compliments.length; // Cycle through compliments
+        button.innerText = compliments[currentComplimentIndex]; // Change text of the button
     }
 
     function changeAffirmation() {
         const button = document.querySelector('.affirmations .button');
-        currentAffirmationIndex = (currentAffirmationIndex + 1) % affirmations.length;
-        button.textContent = affirmations[currentAffirmationIndex];
+        currentAffirmationIndex = (currentAffirmationIndex + 1) % affirmations.length; // Cycle through affirmations
+        button.innerText = affirmations[currentAffirmationIndex]; // Change text of the button
     }
-
-    function typeWriterEffect(text, elementId) {
-        let i = 0;
-        const speed = 100; // Speed of typing
-        const element = document.getElementById(elementId);
-        element.textContent = "";
-
-        function typeWriter() {
-            if (i < text.length) {
-                element.textContent += text.charAt(i);
-                i++;
-                setTimeout(typeWriter, speed);
-            }
-        }
-        typeWriter();
-    }
-
-    window.onload = function() {
-        const message = "Hello, my lovely Khadijah. You are beautiful and amazing! 😘";
-        typeWriterEffect(message, "typewriterMessage");
-        displayGreeting(); // Call custom greeting based on time
-        displaySavedNotes();
-    };
 
     function addNote() {
         const noteInput = document.getElementById('noteInput');
-        const noteText = noteInput.value.trim();
-        if (noteText !== "") {
-            let notes = localStorage.getItem('notes') ? JSON.parse(localStorage.getItem('notes')) : [];
-            notes.push(noteText);
-            localStorage.setItem('notes', JSON.stringify(notes));
-            displaySavedNotes();
-            noteInput.value = "";
+        const savedNotesContainer = document.getElementById('savedNotesContainer');
+        const note = noteInput.value.trim();
+
+        if (note) {
+            const noteElement = document.createElement('div');
+            noteElement.className = 'saved-note';
+            noteElement.textContent = note;
+            savedNotesContainer.appendChild(noteElement);
+            noteInput.value = ''; // Clear input
+            saveNotes(); // Save notes to local storage
         }
     }
 
-    function displaySavedNotes() {
+    function saveNotes() {
         const savedNotesContainer = document.getElementById('savedNotesContainer');
-        let notes = localStorage.getItem('notes') ? JSON.parse(localStorage.getItem('notes')) : [];
-        savedNotesContainer.innerHTML = "";
-        notes.forEach((note, index) => {
-            const noteDiv = document.createElement('div');
-            noteDiv.classList.add('saved-note');
-            noteDiv.textContent = note;
-            savedNotesContainer.appendChild(noteDiv);
+        const notes = Array.from(savedNotesContainer.children).map(note => note.textContent);
+        localStorage.setItem('notes', JSON.stringify(notes)); // Save notes to local storage
+    }
+
+    function loadNotes() {
+        const savedNotesContainer = document.getElementById('savedNotesContainer');
+        const notes = JSON.parse(localStorage.getItem('notes')) || [];
+        notes.forEach(note => {
+            const noteElement = document.createElement('div');
+            noteElement.className = 'saved-note';
+            noteElement.textContent = note;
+            savedNotesContainer.appendChild(noteElement);
         });
     }
 
-    function displayGreeting() {
-        const greetingElement = document.getElementById("greeting");
-        const currentHour = new Date().getHours();
-        let greeting = "Custom Greeting:"; // Default greeting
-
-        if (currentHour >= 5 && currentHour < 12) {
-            greeting = "Good Morning, my love!";
-        } else if (currentHour >= 12 && currentHour < 18) {
-            greeting = "Good Afternoon, beautiful!";
-        } else if (currentHour >= 18 && currentHour < 22) {
-            greeting = "Good Evening, my princess!";
-        } else {
-            greeting = "Good Night, lovely!";
-        }
-
-        greetingElement.textContent = greeting;
-    }
+    window.onload = loadNotes; // Load notes when the page is loaded
+</script>
