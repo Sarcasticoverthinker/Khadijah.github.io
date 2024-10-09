@@ -86,6 +86,23 @@
                 opacity: 0.5;
             }
         }
+        .message-board {
+            margin: 50px auto;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            max-width: 800px;
+            text-align: center;
+        }
+        .message-board h2 {
+            font-size: 2.5em;
+            color: #6a2c91; /* Purple */
+        }
+        .messages {
+            margin-top: 20px;
+            font-size: 1.2em;
+            text-align: left;
+        }
         footer {
             text-align: center;
             padding: 20px;
@@ -102,8 +119,8 @@
 </header>
 
 <section class="compliments">
-    <h2>Why You Are Amazing:</h2>
-    <button class="compliment-button" onclick="changeCompliment()">Khadijah, you are the most beautiful girl in the world.</button>
+    <h2>Responsive Compliment:</h2>
+    <button class="compliment-button" id="complimentButton"></button>
 </section>
 
 <div class="about">
@@ -124,6 +141,13 @@
     </ul>
 </div>
 
+<div class="message-board">
+    <h2>Message Board for Khadijah:</h2>
+    <div class="messages" id="messages">
+        <p>Leave your sweet messages for Khadijah!</p>
+    </div>
+</div>
+
 <footer>
     <p>With all my love, always yours.</p>
     <p>Yasir</p>
@@ -141,14 +165,28 @@
         "You are wonderful!!",
         "You are an annoying cow as well 🙄🙄🙄."
     ];
-    
-    let currentIndex = 0;
 
-    function changeCompliment() {
-        const button = document.querySelector('.compliment-button');
-        currentIndex = (currentIndex + 1) % compliments.length; // Cycle through compliments
-        button.innerText = compliments[currentIndex]; // Change text of the button
+    // Set a random compliment on page load
+    function setRandomCompliment() {
+        const complimentButton = document.getElementById('complimentButton');
+        const randomIndex = Math.floor(Math.random() * compliments.length);
+        complimentButton.innerText = compliments[randomIndex];
     }
+
+    // Initialize random compliment on page load
+    window.onload = setRandomCompliment;
+
+    // Add message to the message board
+    function addMessage(message) {
+        const messagesDiv = document.getElementById('messages');
+        const newMessage = document.createElement('p');
+        newMessage.innerText = message;
+        messagesDiv.appendChild(newMessage);
+    }
+
+    // Example messages to show on the board
+    addMessage("Khadijah, you light up my world!");
+    addMessage("Every moment with you is a treasure!");
 </script>
 </body>
 </html>
