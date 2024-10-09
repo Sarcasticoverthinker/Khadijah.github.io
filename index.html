@@ -12,6 +12,7 @@
             font-family: 'Poppins', sans-serif;
             background: #f3e8ff; /* Light purple background */
             color: #4b0082; /* Dark purple text */
+            overflow-x: hidden;
         }
         header {
             height: 100vh;
@@ -22,6 +23,7 @@
             text-align: center;
             background: #9b59b6; /* Purple */
             color: #fff;
+            animation: fadeIn 2s ease-in-out;
         }
         header h1 {
             font-family: 'Dancing Script', cursive; /* Romantic font for the header */
@@ -35,9 +37,18 @@
             color: #e5e1f4; /* Light purple */
             font-family: 'Courier Prime', monospace; /* Typewriter font */
         }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
         .compliments, .affirmations, .typewriter {
             margin: 50px auto;
             text-align: center;
+            animation: slideUp 1.5s ease-out;
+        }
+        @keyframes slideUp {
+            from { transform: translateY(100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
         .button {
             font-size: 1.5em;
@@ -47,10 +58,11 @@
             background-color: #6a2c91; /* Purple */
             color: white;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.3s;
         }
         .button:hover {
             background-color: #8e44ad; /* Darker Purple */
+            transform: scale(1.05); /* Button hover animation */
         }
         .about {
             margin: 50px auto;
@@ -59,6 +71,7 @@
             border-radius: 15px;
             max-width: 800px;
             text-align: left;
+            animation: slideUp 1.5s ease-out;
         }
         .about h2 {
             font-size: 2.5em;
@@ -146,7 +159,7 @@
 </head>
 <body>
 <header>
-    <h1>For My Beautiful Princess Khadijah</h1>
+    <h1 id="greeting">For My Beautiful Princess Khadijah</h1>
     <p>The epitome of beauty and grace, unmatched in the entire world.</p>
 </header>
 
@@ -212,62 +225,83 @@
     
     const affirmations = [
         "You are capable of achieving great things!",
-        "You radiate positivity and light.",
-        "You are worthy of love and respect.",
-        "You are stronger than you think.",
-        "Every day is a fresh start.",
-        "You have the power to create change.",
-        "Your potential is limitless.",
-        "You are loved and cherished.",
-        "You bring joy to those around you."
+        "Your presence brings light to those around you.",
+        "You have the strength to overcome any challenge.",
+        "You are worthy of all the love and success you receive.",
+        "Your heart is kind, and your spirit is strong.",
+        "You have the power to create a beautiful future.",
+        "You are brave, strong, and full of potential.",
+        "Your smile lights up the world!",
+        "You are exactly where you need to be, and you're doing great.",
+        "You deserve all the happiness in the world."
     ];
-    
-    let currentComplimentIndex = 0;
-    let currentAffirmationIndex = 0;
 
+    let complimentIndex = 0;
+    let affirmationIndex = 0;
+    
     function changeCompliment() {
-        const button = document.querySelector('.compliments .button');
-        currentComplimentIndex = (currentComplimentIndex + 1) % compliments.length; // Cycle through compliments
-        button.innerText = compliments[currentComplimentIndex]; // Change text of the button
+        complimentIndex = (complimentIndex + 1) % compliments.length;
+        document.querySelector('.compliments .button').textContent = compliments[complimentIndex];
     }
 
     function changeAffirmation() {
-        const button = document.querySelector('.affirmations .button');
-        currentAffirmationIndex = (currentAffirmationIndex + 1) % affirmations.length; // Cycle through affirmations
-        button.innerText = affirmations[currentAffirmationIndex]; // Change text of the button
+        affirmationIndex = (affirmationIndex + 1) % affirmations.length;
+        document.querySelector('.affirmations .button').textContent = affirmations[affirmationIndex];
     }
 
-    function addNote() {
-        const noteInput = document.getElementById('noteInput');
-        const savedNotesContainer = document.getElementById('savedNotesContainer');
-        const note = noteInput.value.trim();
+    // Typewriter effect
+    const typewriterText = "Khadijah, every day with you is a gift, and I cherish you more than words can express.";
+    let index = 0;
 
-        if (note) {
-            const noteElement = document.createElement('div');
-            noteElement.className = 'saved-note';
-            noteElement.textContent = note;
-            savedNotesContainer.appendChild(noteElement);
-            noteInput.value = ''; // Clear input
-            saveNotes(); // Save notes to local storage
+    function typeWriter() {
+        if (index < typewriterText.length) {
+            document.getElementById("typewriterMessage").innerHTML += typewriterText.charAt(index);
+            index++;
+            setTimeout(typeWriter, 100);
         }
     }
 
-    function saveNotes() {
-        const savedNotesContainer = document.getElementById('savedNotesContainer');
-        const notes = Array.from(savedNotesContainer.children).map(note => note.textContent);
-        localStorage.setItem('notes', JSON.stringify(notes)); // Save notes to local storage
+    window.onload = function() {
+        typeWriter();
+        customGreeting(); // Add custom greeting
+    };
+
+    // Add custom greeting based on time of day
+    function customGreeting() {
+        const greetingElement = document.getElementById("greeting");
+        const now = new Date();
+        const hour = now.getHours();
+        
+        let greetingMessage = "For My Beautiful Princess Khadijah";
+        
+        if (hour >= 5 && hour < 12) {
+            greetingMessage = "Good morning, beautiful Khadijah!";
+        } else if (hour >= 12 && hour < 18) {
+            greetingMessage = "Good afternoon, my gorgeous Khadijah!";
+        } else if (hour >= 18 && hour < 21) {
+            greetingMessage = "Good evening, stunning Khadijah!";
+        } else {
+            greetingMessage = "Good night, sweet Khadijah! Sweet dreams!";
+        }
+
+        greetingElement.textContent = greetingMessage;
     }
 
-    function loadNotes() {
-        const savedNotesContainer = document.getElementById('savedNotesContainer');
-        const notes = JSON.parse(localStorage.getItem('notes')) || [];
-        notes.forEach(note => {
-            const noteElement = document.createElement('div');
-            noteElement.className = 'saved-note';
-            noteElement.textContent = note;
-            savedNotesContainer.appendChild(noteElement);
-        });
-    }
+    // Save notes functionality
+    const savedNotesContainer = document.getElementById('savedNotesContainer');
 
-    window.onload = loadNotes; // Load notes when the page is loaded
+    function addNote() {
+        const noteInput = document.getElementById('noteInput');
+        const noteText = noteInput.value.trim();
+
+        if (noteText !== '') {
+            const newNote = document.createElement('div');
+            newNote.classList.add('saved-note');
+            newNote.textContent = noteText;
+            savedNotesContainer.appendChild(newNote);
+            noteInput.value = ''; // Clear the input field
+        }
+    }
 </script>
+</body>
+</html>
