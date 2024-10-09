@@ -31,11 +31,11 @@
             margin-top: 10px;
             color: #e5e1f4; /* Light purple */
         }
-        .compliments, .affirmations {
+        .compliments {
             margin: 50px auto;
             text-align: center;
         }
-        .button {
+        .compliment-button {
             font-size: 1.5em;
             padding: 15px 30px;
             border: none;
@@ -45,7 +45,7 @@
             cursor: pointer;
             transition: background-color 0.3s;
         }
-        .button:hover {
+        .compliment-button:hover {
             background-color: #8e44ad; /* Darker Purple */
         }
         .about {
@@ -149,13 +149,7 @@
 
 <section class="compliments">
     <h2>Why You Are Amazing:</h2>
-    <button class="button" onclick="changeCompliment()">Khadijah, you are the most beautiful girl in the world.</button>
-</section>
-
-<section class="affirmations">
-    <h2>Your Daily Affirmation:</h2>
-    <button class="button" onclick="showAffirmation()">Get New Affirmation</button>
-    <p id="affirmation" style="font-size: 1.5em; margin-top: 10px;"></p>
+    <button class="compliment-button" onclick="changeCompliment()">Khadijah, you are the most beautiful girl in the world.</button>
 </section>
 
 <div class="about">
@@ -200,27 +194,13 @@
         "You are wonderful!!",
         "You are an annoying cow as well 🙄🙄🙄."
     ];
-
-    const affirmations = [
-        "You are loved beyond measure.",
-        "You bring light into the lives of those around you.",
-        "Your smile can brighten the darkest days.",
-        "You are capable of achieving great things.",
-        "You are unique and special just as you are."
-    ];
     
-    let currentComplimentIndex = 0;
+    let currentIndex = 0;
 
     function changeCompliment() {
-        const button = document.querySelector('.compliments button');
-        currentComplimentIndex = (currentComplimentIndex + 1) % compliments.length; // Cycle through compliments
-        button.innerText = compliments[currentComplimentIndex]; // Change text of the button
-    }
-
-    function showAffirmation() {
-        const randomIndex = Math.floor(Math.random() * affirmations.length);
-        const affirmationText = affirmations[randomIndex];
-        document.getElementById('affirmation').innerText = affirmationText; // Display the affirmation
+        const button = document.querySelector('.compliment-button');
+        currentIndex = (currentIndex + 1) % compliments.length; // Cycle through compliments
+        button.innerText = compliments[currentIndex]; // Change text of the button
     }
 
     function addNote() {
@@ -240,16 +220,16 @@
 
     function saveNotes() {
         const savedNotesContainer = document.getElementById('savedNotesContainer');
-        const notes = Array.from(saved
-const savedNotesContainer = document.getElementById('savedNotesContainer');
-        const notes = Array.from(savedNotesContainer.children).map(note => note.textContent); // Get notes from container
+        const notes = [];
+        for (let i = 0; i < savedNotesContainer.children.length; i++) {
+            notes.push(savedNotesContainer.children[i].textContent);
+        }
         localStorage.setItem('notes', JSON.stringify(notes)); // Save notes to local storage
     }
 
     function loadNotes() {
         const savedNotesContainer = document.getElementById('savedNotesContainer');
         const notes = JSON.parse(localStorage.getItem('notes')) || []; // Load notes from local storage
-
         notes.forEach(note => {
             const noteElement = document.createElement('div');
             noteElement.className = 'saved-note';
@@ -258,8 +238,9 @@ const savedNotesContainer = document.getElementById('savedNotesContainer');
         });
     }
 
-    window.onload = loadNotes; // Load notes when the page is loaded
-</script>
+    // Load notes on page load
+    window.onload = loadNotes;
 
+</script>
 </body>
 </html>
