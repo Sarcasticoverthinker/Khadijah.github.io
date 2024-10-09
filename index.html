@@ -10,17 +10,24 @@
             font-family: 'Poppins', sans-serif;
             color: #fff;
             text-align: center;
-            padding: 50px;
+            padding: 20px;
             margin: 0;
         }
         h1 {
-            font-size: 3em;
+            font-size: 3.5em;
             color: #6a0dad;
             margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        h2 {
+            font-size: 2.5em;
+            color: #6a0dad;
+            margin-bottom: 15px;
         }
         p {
-            font-size: 1.3em;
+            font-size: 1.4em;
             margin-bottom: 40px;
+            line-height: 1.6;
         }
         ul {
             list-style-type: none;
@@ -28,23 +35,23 @@
         }
         li {
             background: rgba(255, 255, 255, 0.2);
-            margin: 10px 0;
+            margin: 15px 0;
             padding: 15px 20px;
             border-radius: 15px;
-            font-size: 1.4em;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 1.5em;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             position: relative;
+            transition: all 0.3s ease-in-out;
         }
         li:hover {
             background: rgba(255, 255, 255, 0.3);
-            transform: scale(1.05);
-            transition: all 0.3s ease-in-out;
+            transform: translateY(-5px);
         }
         li:before {
             content: '💜'; /* Purple heart emoji */
             position: absolute;
-            left: -30px;
-            font-size: 1.5em;
+            left: -40px;
+            font-size: 2em;
             animation: bounce 1s infinite;
         }
         @keyframes bounce {
@@ -55,44 +62,37 @@
                 transform: translateY(-10px);
             }
         }
-        footer {
-            margin-top: 50px;
-            font-size: 1.1em;
-            color: #6a0dad;
-        }
         .about {
             margin-top: 40px;
             padding: 20px;
             background: rgba(255, 255, 255, 0.2);
             border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
-        .about h2 {
-            color: #6a0dad;
-            margin-bottom: 15px;
-        }
-        .about p {
+        footer {
+            margin-top: 50px;
             font-size: 1.2em;
-            margin-bottom: 20px;
+            color: #6a0dad;
         }
-        .about ul {
-            text-align: left;
-            display: inline-block;
+        .highlight {
+            color: #ffb3ff;
+            font-weight: bold;
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <h1>To My Beautiful Khadijah</h1>
-    <p>Here are just a few reasons why you're absolutely incredible:</p>
+    <p>Every moment spent with you is a treasure. Here are just a few reasons why you're absolutely incredible:</p>
     <ul>
         <li>Your heart is made of pure gold, so kind and loving.</li>
-        <li>You have a way of making every moment unforgettable.</li>
-        <li>Your intelligence is breathtaking and admirable.</li>
+        <li>You have a unique way of making every moment unforgettable.</li>
+        <li>Your intelligence is both breathtaking and admirable.</li>
         <li>Your smile brings warmth and joy to everyone around you.</li>
-        <li>You radiate strength, confidence, and grace.</li>
-        <li>I'm so lucky to be loved by someone as amazing as you.</li>
-        <li>You have a natural beauty that shines inside and out.</li>
-        <li>Your laugh is the sweetest sound in the world.</li>
+        <li>You radiate strength, confidence, and grace in everything you do.</li>
+        <li>I'm incredibly lucky to be loved by someone as amazing as you.</li>
+        <li>You have a natural beauty that shines from within and lights up the room.</li>
+        <li>Your laugh is the sweetest sound in the world, and it makes my heart flutter.</li>
         <li>You inspire me to be the best version of myself every day.</li>
     </ul>
 
@@ -100,21 +100,21 @@
         <h2>All About Khadijah</h2>
         <p>Here’s a glimpse into what makes you special:</p>
         <ul>
-            <li><strong>Favorite Color:</strong> Purple</li>
-            <li><strong>Favorite Drink:</strong> Oreo Milkshake</li>
-            <li><strong>Favorite Food:</strong> Butter Chicken</li>
-            <li><strong>Loves:</strong> Laughing with people she likes</li>
-            <li><strong>Enjoys:</strong> Sorting things out</li>
-            <li><strong>Adorable Relationship:</strong> Loves her baby brother, even when he shows attitude</li>
-            <li><strong>Not a Fan of:</strong> Being called "baby girl"</li>
-            <li><strong>Work Habit:</strong> Loves talking to someone while doing work</li>
-            <li><strong>Travel Dream:</strong> Admires New Zealand</li>
-            <li><strong>Favorite Sounds:</strong> Loves baby sounds</li>
-            <li><strong>Favorite Place:</strong> Ooty</li>
-            <li><strong>Gets Mad When:</strong> Called "T-shirt wali aunty" 😂</li>
-            <li><strong>Grammar Enthusiast:</strong> A proud grammar Nazi</li>
-            <li><strong>Chatterbox:</strong> A true yapper at heart</li>
-            <li><strong>Makeup Lover:</strong> Especially lip gloss and eyeliner</li>
+            <li><span class="highlight">Favorite Color:</span> Purple</li>
+            <li><span class="highlight">Favorite Drink:</span> Oreo Milkshake</li>
+            <li><span class="highlight">Favorite Food:</span> Butter Chicken</li>
+            <li><span class="highlight">Loves:</span> Laughing with people she likes</li>
+            <li><span class="highlight">Enjoys:</span> Sorting things out and finding solutions</li>
+            <li><span class="highlight">Adorable Relationship:</span> Loves her baby brother, even when he shows attitude</li>
+            <li><span class="highlight">Not a Fan of:</span> Being called "baby girl"</li>
+            <li><span class="highlight">Work Habit:</span> Loves talking to someone while doing work</li>
+            <li><span class="highlight">Travel Dream:</span> Admires New Zealand for its beauty</li>
+            <li><span class="highlight">Favorite Sounds:</span> Loves the soothing sounds of babies</li>
+            <li><span class="highlight">Favorite Place:</span> Ooty for its serene nature</li>
+            <li><span class="highlight">Gets Mad When:</span> Called "T-shirt wali aunty" 😂</li>
+            <li><span class="highlight">Grammar Enthusiast:</span> A proud grammar Nazi who appreciates the art of language</li>
+            <li><span class="highlight">Chatterbox:</span> A true yapper at heart, always ready to chat</li>
+            <li><span class="highlight">Makeup Lover:</span> Especially fond of lip gloss and eyeliner</li>
         </ul>
     </div>
 
