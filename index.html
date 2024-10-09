@@ -12,7 +12,6 @@
             font-family: 'Poppins', sans-serif;
             background: #f3e8ff; /* Light purple background */
             color: #4b0082; /* Dark purple text */
-            overflow-x: hidden;
         }
         header {
             height: 100vh;
@@ -23,7 +22,6 @@
             text-align: center;
             background: #9b59b6; /* Purple */
             color: #fff;
-            animation: fadeIn 2s ease-in-out;
         }
         header h1 {
             font-family: 'Dancing Script', cursive; /* Romantic font for the header */
@@ -37,18 +35,9 @@
             color: #e5e1f4; /* Light purple */
             font-family: 'Courier Prime', monospace; /* Typewriter font */
         }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
         .compliments, .affirmations, .typewriter {
             margin: 50px auto;
             text-align: center;
-            animation: slideUp 1.5s ease-out;
-        }
-        @keyframes slideUp {
-            from { transform: translateY(100px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
         }
         .button {
             font-size: 1.5em;
@@ -58,11 +47,10 @@
             background-color: #6a2c91; /* Purple */
             color: white;
             cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s;
+            transition: background-color 0.3s;
         }
         .button:hover {
             background-color: #8e44ad; /* Darker Purple */
-            transform: scale(1.05); /* Button hover animation */
         }
         .about {
             margin: 50px auto;
@@ -71,7 +59,6 @@
             border-radius: 15px;
             max-width: 800px;
             text-align: left;
-            animation: slideUp 1.5s ease-out;
         }
         .about h2 {
             font-size: 2.5em;
@@ -159,7 +146,8 @@
 </head>
 <body>
 <header>
-    <h1 id="greeting">For My Beautiful Princess Khadijah</h1>
+    <h1 id="greeting"></h1> <!-- Custom Greeting will appear here -->
+    <p id="mainText">For My Beautiful Princess Khadijah</p> <!-- Original title text -->
     <p>The epitome of beauty and grace, unmatched in the entire world.</p>
 </header>
 
@@ -220,88 +208,85 @@
         "You are wonderful!!",
         "You are an annoying cow as well 🙄🙄🙄.",
         "and sour pickle as well 🙄🙄🙄.",
-        "Moti Moti Moti 🙄🙄🙄."
-    ];
-    
-    const affirmations = [
-        "You are capable of achieving great things!",
-        "Your presence brings light to those around you.",
-        "You have the strength to overcome any challenge.",
-        "You are worthy of all the love and success you receive.",
-        "Your heart is kind, and your spirit is strong.",
-        "You have the power to create a beautiful future.",
-        "You are brave, strong, and full of potential.",
-        "Your smile lights up the world!",
-        "You are exactly where you need to be, and you're doing great.",
-        "You deserve all the happiness in the world."
+        "Moti Moti Moti 🙄🙄🙄.
     ];
 
-    let complimentIndex = 0;
-    let affirmationIndex = 0;
-    
+    let currentComplimentIndex = 0;
+    let currentAffirmationIndex = 0;
+
     function changeCompliment() {
-        complimentIndex = (complimentIndex + 1) % compliments.length;
-        document.querySelector('.compliments .button').textContent = compliments[complimentIndex];
+        const button = document.querySelector('.compliments .button');
+        currentComplimentIndex = (currentComplimentIndex + 1) % compliments.length;
+        button.textContent = compliments[currentComplimentIndex];
     }
 
     function changeAffirmation() {
-        affirmationIndex = (affirmationIndex + 1) % affirmations.length;
-        document.querySelector('.affirmations .button').textContent = affirmations[affirmationIndex];
+        const button = document.querySelector('.affirmations .button');
+        currentAffirmationIndex = (currentAffirmationIndex + 1) % affirmations.length;
+        button.textContent = affirmations[currentAffirmationIndex];
     }
 
-    // Typewriter effect
-    const typewriterText = "Khadijah, every day with you is a gift, and I cherish you more than words can express.";
-    let index = 0;
+    function typeWriterEffect(text, elementId) {
+        let i = 0;
+        const speed = 100; // Speed of typing
+        const element = document.getElementById(elementId);
+        element.textContent = "";
 
-    function typeWriter() {
-        if (index < typewriterText.length) {
-            document.getElementById("typewriterMessage").innerHTML += typewriterText.charAt(index);
-            index++;
-            setTimeout(typeWriter, 100);
+        function typeWriter() {
+            if (i < text.length) {
+                element.textContent += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, speed);
+            }
         }
+        typeWriter();
     }
 
     window.onload = function() {
-        typeWriter();
-        customGreeting(); // Add custom greeting
+        const message = "Hello, my lovely Khadijah. You are beautiful and amazing! 😘";
+        typeWriterEffect(message, "typewriterMessage");
+        displayGreeting(); // Call custom greeting based on time
+        displaySavedNotes();
     };
-
-    // Add custom greeting based on time of day
-    function customGreeting() {
-        const greetingElement = document.getElementById("greeting");
-        const now = new Date();
-        const hour = now.getHours();
-        
-        let greetingMessage = "For My Beautiful Princess Khadijah";
-        
-        if (hour >= 5 && hour < 12) {
-            greetingMessage = "Good morning, beautiful Khadijah!";
-        } else if (hour >= 12 && hour < 18) {
-            greetingMessage = "Good afternoon, my gorgeous Khadijah!";
-        } else if (hour >= 18 && hour < 21) {
-            greetingMessage = "Good evening, stunning Khadijah!";
-        } else {
-            greetingMessage = "Good night, sweet Khadijah! Sweet dreams!";
-        }
-
-        greetingElement.textContent = greetingMessage;
-    }
-
-    // Save notes functionality
-    const savedNotesContainer = document.getElementById('savedNotesContainer');
 
     function addNote() {
         const noteInput = document.getElementById('noteInput');
         const noteText = noteInput.value.trim();
-
-        if (noteText !== '') {
-            const newNote = document.createElement('div');
-            newNote.classList.add('saved-note');
-            newNote.textContent = noteText;
-            savedNotesContainer.appendChild(newNote);
-            noteInput.value = ''; // Clear the input field
+        if (noteText !== "") {
+            let notes = localStorage.getItem('notes') ? JSON.parse(localStorage.getItem('notes')) : [];
+            notes.push(noteText);
+            localStorage.setItem('notes', JSON.stringify(notes));
+            displaySavedNotes();
+            noteInput.value = "";
         }
     }
-</script>
-</body>
-</html>
+
+    function displaySavedNotes() {
+        const savedNotesContainer = document.getElementById('savedNotesContainer');
+        let notes = localStorage.getItem('notes') ? JSON.parse(localStorage.getItem('notes')) : [];
+        savedNotesContainer.innerHTML = "";
+        notes.forEach((note, index) => {
+            const noteDiv = document.createElement('div');
+            noteDiv.classList.add('saved-note');
+            noteDiv.textContent = note;
+            savedNotesContainer.appendChild(noteDiv);
+        });
+    }
+
+    function displayGreeting() {
+        const greetingElement = document.getElementById("greeting");
+        const currentHour = new Date().getHours();
+        let greeting = "Custom Greeting:"; // Default greeting
+
+        if (currentHour >= 5 && currentHour < 12) {
+            greeting = "Good Morning, my love!";
+        } else if (currentHour >= 12 && currentHour < 18) {
+            greeting = "Good Afternoon, beautiful!";
+        } else if (currentHour >= 18 && currentHour < 22) {
+            greeting = "Good Evening, my princess!";
+        } else {
+            greeting = "Good Night, lovely!";
+        }
+
+        greetingElement.textContent = greeting;
+    }
