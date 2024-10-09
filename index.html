@@ -8,7 +8,7 @@
         body {
             margin: 0;
             font-family: 'Poppins', sans-serif;
-            background: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDR8fGJlYWNoJTIwYW5kJTIwc3Vuc2V0fGVufDB8fHx8MTYyNDUzMzMzMg&ixlib=rb-1.2.1&q=80&w=1080') no-repeat center center fixed; /* Sunset beach background */
+            background: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDR8fGJlYWNoJTIwYW5kJTIwc3Vuc2V0fGVufDB8fHx8MTYyNDUzMzMzMg&ixlib=rb-1.2.1&q=80&w=1080') no-repeat center center fixed;
             background-size: cover;
             color: #fff;
             overflow: hidden;
@@ -22,7 +22,7 @@
             text-align: center;
             position: relative;
             z-index: 1;
-            backdrop-filter: blur(5px); /* Adds blur effect to background */
+            backdrop-filter: blur(5px);
         }
         header h1 {
             font-size: 4em;
@@ -35,7 +35,7 @@
             font-size: 1.5em;
             margin-top: 10px;
             color: #e5e1f4;
-            animation: fadeIn 1.5s ease-in-out 0.5s; /* Delayed animation */
+            animation: fadeIn 1.5s ease-in-out 0.5s;
         }
         .compliments {
             margin: 50px auto;
@@ -49,13 +49,11 @@
             margin: 10px;
             border: none;
             border-radius: 10px;
-            background-color: #9b59b6; /* Lighter purple */
+            background-color: #9b59b6;
             color: white;
             cursor: pointer;
             transition: transform 0.2s, background-color 0.3s;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-            opacity: 0; /* Start hidden */
-            animation: fadeIn 1s ease-in-out forwards; /* Fade-in effect */
         }
         .compliment-button:hover {
             background-color: #8e44ad;
@@ -64,12 +62,11 @@
         .about {
             margin: 50px auto;
             padding: 30px;
-            background: rgba(255, 255, 255, 0.2); /* Slightly more transparent */
+            background: rgba(255, 255, 255, 0.2);
             border-radius: 15px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
             max-width: 800px;
             text-align: left;
-            animation: slideIn 1s ease-in-out; /* Slide-in animation */
         }
         .about h2 {
             font-size: 2.5em;
@@ -88,27 +85,23 @@
             padding-left: 35px;
         }
         .about li:before {
-            content: '💜'; /* Purple heart emoji */
+            content: '💜';
             position: absolute;
             left: 0;
             font-size: 1em; /* Smaller hearts */
-            animation: blink 1s infinite; /* Add blinking animation */
+            animation: blink 1s infinite;
         }
         @keyframes blink {
             0%, 100% {
                 opacity: 1;
             }
             50% {
-                opacity: 0.5; /* Fade to half opacity */
+                opacity: 0.5;
             }
         }
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
-        }
-        @keyframes slideIn {
-            from { transform: translateY(-20px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
         }
         footer {
             text-align: center;
@@ -132,12 +125,6 @@
 <section class="compliments">
     <h2>Why You Are Amazing:</h2>
     <button class="compliment-button" onclick="changeCompliment()">Your heart is made of pure gold.</button>
-    <button class="compliment-button" onclick="changeCompliment()">You make every moment unforgettable.</button>
-    <button class="compliment-button" onclick="changeCompliment()">Your smile brightens my day.</button>
-    <button class="compliment-button" onclick="changeCompliment()">You inspire me to be better every day.</button>
-    <button class="compliment-button" onclick="changeCompliment()">Your laughter is the sweetest melody.</button>
-    <button class="compliment-button" onclick="changeCompliment()">You radiate love and kindness.</button>
-    <button class="compliment-button" onclick="changeCompliment()">I'm so lucky to have you in my life.</button>
 </section>
 
 <div class="about">
@@ -182,20 +169,10 @@
     let currentIndex = 0;
 
     function changeCompliment() {
-        const buttons = document.querySelectorAll('.compliment-button');
-        buttons.forEach((button, index) => {
-            button.style.display = 'none'; // Hide all buttons
-        });
-
+        const button = document.querySelector('.compliment-button');
         currentIndex = (currentIndex + 1) % compliments.length; // Cycle through compliments
-        buttons[currentIndex].style.display = 'inline-block'; // Show the next compliment
-        buttons[currentIndex].innerText = compliments[currentIndex]; // Change text of the button
-        buttons[currentIndex].style.opacity = 1; // Reset opacity for fade-in effect
-        setTimeout(() => {
-            buttons[currentIndex].style.opacity = 0; // Start fade-out
-        }, 2000); // Fade-out duration
+        button.innerText = compliments[currentIndex]; // Change text of the button
     }
-
-    // Initialize by showing the first compliment button
-    document.querySelector('.compliment-button').style.display = 'inline-block';
-</script
+</script>
+</body>
+</html>
