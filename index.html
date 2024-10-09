@@ -7,45 +7,42 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f8f3f3;
+            background-color: #f3e5f5; /* Light purple background */
             margin: 0;
-            padding: 0;
-            color: #444;
-            transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+            padding: 20px;
+            color: #6a0dad; /* Default text color */
         }
         h1 {
             text-align: center;
-            color: #6a0dad; /* Default Purple */
-            margin-top: 20px;
+            color: #6a0dad; /* Purple color */
         }
         h2 {
-            color: #6a0dad; /* Default Purple */
+            color: #6a0dad; /* Purple color */
+            text-align: center;
         }
         #compliments {
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin: 20px;
+            margin: 20px 0;
         }
         .compliment {
-            margin: 5px;
-            padding: 10px;
-            border-radius: 5px;
-            background-color: #e0c9e0; /* Light Purple */
-            transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
-            cursor: pointer;
+            padding: 15px;
+            margin: 10px;
+            border: 2px solid #6a0dad; /* Purple border */
+            border-radius: 8px;
+            background-color: #e0c9e0; /* Light purple */
             width: 80%;
             text-align: center;
-            animation: fadeIn 0.5s;
+            transition: transform 0.3s;
         }
         .compliment:hover {
-            background-color: #d9a0d9; /* Darker Purple on hover */
-            transform: scale(1.05); /* Scale up on hover */
+            transform: scale(1.05); /* Slightly enlarge on hover */
         }
         #notesSection {
-            margin: 20px;
+            margin: 20px 0;
             padding: 10px;
-            background-color: #f2e6f2; /* Light Purple Background */
+            background-color: #f2e6f2; /* Light purple background for notes */
             border-radius: 8px;
         }
         #notesList {
@@ -62,28 +59,14 @@
             border-radius: 4px;
             background-color: #f9f9f9;
         }
-        #colorScheme {
-            margin: 20px;
-            display: flex;
-            justify-content: center;
-        }
-        #colorScheme select {
-            padding: 5px;
-            border-radius: 4px;
-            border: 1px solid #ccc;
-        }
         #hearts {
             text-align: center;
-            font-size: 24px;
+            font-size: 30px;
             animation: blink 1.5s infinite;
         }
         @keyframes blink {
             0%, 100% { opacity: 1; }
             50% { opacity: 0.5; }
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
         }
     </style>
 </head>
@@ -103,16 +86,6 @@
         <div id="notesList"></div>
         <input type="text" id="noteInput" placeholder="Write your thoughts here..." />
         <button onclick="addNote()">Add Note</button>
-    </div>
-
-    <div id="colorScheme">
-        <label for="colorSelect">Choose a Color Scheme:</label>
-        <select id="colorSelect" onchange="changeColorScheme(this.value)">
-            <option value="purple">Purple</option>
-            <option value="blue">Blue</option>
-            <option value="pink">Pink</option>
-            <option value="green">Green</option>
-        </select>
     </div>
 
     <script>
@@ -172,43 +145,6 @@
             localStorage.setItem('notes', JSON.stringify(notes)); // Save the updated notes array to local storage
 
             noteInput.value = ''; // Clear the input field after adding the note
-        }
-
-        // Change the color scheme based on selection
-        function changeColorScheme(color) {
-            let bgColor, textColor, complimentBgColor;
-            switch (color) {
-                case 'purple':
-                    bgColor = '#f8f3f3';
-                    textColor = '#6a0dad';
-                    complimentBgColor = '#e0c9e0';
-                    break;
-                case 'blue':
-                    bgColor = '#e0f7fa';
-                    textColor = '#00796b';
-                    complimentBgColor = '#b2ebf2';
-                    break;
-                case 'pink':
-                    bgColor = '#fce4ec';
-                    textColor = '#c2185b';
-                    complimentBgColor = '#f8bbd0';
-                    break;
-                case 'green':
-                    bgColor = '#e8f5e9';
-                    textColor = '#388e3c';
-                    complimentBgColor = '#c8e6c9';
-                    break;
-                default:
-                    bgColor = '#f8f3f3';
-                    textColor = '#6a0dad';
-                    complimentBgColor = '#e0c9e0';
-                    break;
-            }
-            document.body.style.backgroundColor = bgColor;
-            document.body.style.color = textColor;
-            document.querySelectorAll('.compliment').forEach(el => el.style.backgroundColor = complimentBgColor);
-            document.querySelector('h1').style.color = textColor;
-            document.querySelector('h2').style.color = textColor;
         }
     </script>
 </body>
