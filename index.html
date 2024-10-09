@@ -6,7 +6,7 @@
     <title>For My Khadijah</title>
     <style>
         body {
-            background: linear-gradient(to right, #ff9a9e, #fad0c4, #fbc2eb);
+            background: linear-gradient(to right, #d4c0e1, #e3c9e3, #e9d9f2);
             font-family: 'Poppins', sans-serif;
             color: #fff;
             text-align: center;
@@ -15,7 +15,7 @@
         }
         h1 {
             font-size: 3em;
-            color: #fff;
+            color: #6a0dad;
             margin-bottom: 20px;
         }
         p {
@@ -33,16 +33,32 @@
             border-radius: 15px;
             font-size: 1.4em;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
         }
         li:hover {
             background: rgba(255, 255, 255, 0.3);
             transform: scale(1.05);
             transition: all 0.3s ease-in-out;
         }
+        li:before {
+            content: '💜'; /* Purple heart emoji */
+            position: absolute;
+            left: -30px;
+            font-size: 1.5em;
+            animation: bounce 1s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
         footer {
             margin-top: 50px;
             font-size: 1.1em;
-            color: #fff;
+            color: #6a0dad;
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
