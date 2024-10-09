@@ -31,11 +31,11 @@
             margin-top: 10px;
             color: #e5e1f4; /* Light purple */
         }
-        .compliments {
+        .compliments, .affirmations {
             margin: 50px auto;
             text-align: center;
         }
-        .compliment-button {
+        .button {
             font-size: 1.5em;
             padding: 15px 30px;
             border: none;
@@ -45,7 +45,7 @@
             cursor: pointer;
             transition: background-color 0.3s;
         }
-        .compliment-button:hover {
+        .button:hover {
             background-color: #8e44ad; /* Darker Purple */
         }
         .about {
@@ -141,7 +141,6 @@
     </style>
 </head>
 <body>
-
 <header>
     <h1>For My Beautiful Princess Khadijah</h1>
     <p>The epitome of beauty and grace, unmatched in the entire world.</p>
@@ -149,7 +148,12 @@
 
 <section class="compliments">
     <h2>Why You Are Amazing:</h2>
-    <button class="compliment-button" onclick="changeCompliment()">Khadijah, you are the most beautiful girl in the world.</button>
+    <button class="button" onclick="changeCompliment()">Khadijah, you are the most beautiful girl in the world.</button>
+</section>
+
+<section class="affirmations">
+    <h2>Daily Affirmation:</h2>
+    <button class="button" onclick="changeAffirmation()">You are capable of achieving great things!</button>
 </section>
 
 <div class="about">
@@ -195,12 +199,31 @@
         "You are an annoying cow as well 🙄🙄🙄."
     ];
     
-    let currentIndex = 0;
+    const affirmations = [
+        "You are capable of achieving great things!",
+        "You radiate positivity and light.",
+        "You are worthy of love and respect.",
+        "You are stronger than you think.",
+        "Every day is a fresh start.",
+        "You have the power to create change.",
+        "Your potential is limitless.",
+        "You are loved and cherished.",
+        "You bring joy to those around you."
+    ];
+    
+    let currentComplimentIndex = 0;
+    let currentAffirmationIndex = 0;
 
     function changeCompliment() {
-        const button = document.querySelector('.compliment-button');
-        currentIndex = (currentIndex + 1) % compliments.length; // Cycle through compliments
-        button.innerText = compliments[currentIndex]; // Change text of the button
+        const button = document.querySelector('.compliments .button');
+        currentComplimentIndex = (currentComplimentIndex + 1) % compliments.length; // Cycle through compliments
+        button.innerText = compliments[currentComplimentIndex]; // Change text of the button
+    }
+
+    function changeAffirmation() {
+        const button = document.querySelector('.affirmations .button');
+        currentAffirmationIndex = (currentAffirmationIndex + 1) % affirmations.length; // Cycle through affirmations
+        button.innerText = affirmations[currentAffirmationIndex]; // Change text of the button
     }
 
     function addNote() {
@@ -220,16 +243,13 @@
 
     function saveNotes() {
         const savedNotesContainer = document.getElementById('savedNotesContainer');
-        const notes = [];
-        for (let i = 0; i < savedNotesContainer.children.length; i++) {
-            notes.push(savedNotesContainer.children[i].textContent);
-        }
+        const notes = Array.from(savedNotesContainer.children).map(note => note.textContent);
         localStorage.setItem('notes', JSON.stringify(notes)); // Save notes to local storage
     }
 
     function loadNotes() {
         const savedNotesContainer = document.getElementById('savedNotesContainer');
-        const notes = JSON.parse(localStorage.getItem('notes')) || []; // Load notes from local storage
+        const notes = JSON.parse(localStorage.getItem('notes')) || [];
         notes.forEach(note => {
             const noteElement = document.createElement('div');
             noteElement.className = 'saved-note';
@@ -238,9 +258,5 @@
         });
     }
 
-    // Load notes on page load
-    window.onload = loadNotes;
-
+    window.onload = loadNotes; // Load notes when the page is loaded
 </script>
-</body>
-</html>
