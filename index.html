@@ -31,23 +31,6 @@
             margin-top: 10px;
             color: #e5e1f4; /* Light purple */
         }
-        .compliments {
-            margin: 50px auto;
-            text-align: center;
-        }
-        .compliment-button {
-            font-size: 1.5em;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 10px;
-            background-color: #6a2c91; /* Purple */
-            color: white;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .compliment-button:hover {
-            background-color: #8e44ad; /* Darker Purple */
-        }
         .about {
             margin: 50px auto;
             padding: 30px;
@@ -141,11 +124,6 @@
     <p>The epitome of beauty and grace, unmatched in the entire world.</p>
 </header>
 
-<section class="compliments">
-    <h2>Responsive Compliment:</h2>
-    <button class="compliment-button" id="complimentButton"></button>
-</section>
-
 <div class="about">
     <h2>Fun Facts About You:</h2>
     <p>Here are some delightful insights into your wonderful self:</p>
@@ -180,28 +158,6 @@
 </footer>
 
 <script>
-    const compliments = [
-        "Khadijah, you are the most beautiful girl in the world.",
-        "In my eyes, you shine as the most stunning girl.",
-        "I truly enjoy every moment we spend talking Khadijah.",
-        "You're not just beautiful on the outside; your soul is radiant.",
-        "I miss you the moment our conversation ends.",
-        "Khadijah, your kindness and warmth is rare.",
-        "Every time I see you, my heart skips a beat.",
-        "You are wonderful!!",
-        "You are an annoying cow as well 🙄🙄🙄."
-    ];
-
-    // Set a random compliment on page load
-    function setRandomCompliment() {
-        const complimentButton = document.getElementById('complimentButton');
-        const randomIndex = Math.floor(Math.random() * compliments.length);
-        complimentButton.innerText = compliments[randomIndex];
-    }
-
-    // Initialize random compliment on page load
-    window.onload = setRandomCompliment;
-
     // Add note to the notes section
     function addNote() {
         const noteInput = document.getElementById('noteInput');
