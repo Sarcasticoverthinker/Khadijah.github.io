@@ -8,11 +8,11 @@
         body {
             margin: 0;
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(to bottom right, #d4c0e1, #e3c9e3, #e9d9f2);
+            background: linear-gradient(to bottom right, #ff9e9e, #ffb3b3, #e3c9e3);
             color: #fff;
         }
         header {
-            background: url('https://example.com/your-purple-background-image.jpg') no-repeat center center/cover;
+            background: url('https://example.com/your-sunset-beach-image.jpg') no-repeat center center/cover;
             height: 100vh;
             display: flex;
             flex-direction: column;
@@ -80,6 +80,11 @@
             left: 0;
             font-size: 1.5em;
         }
+        .beach-icon {
+            width: 30px;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
         footer {
             text-align: center;
             padding: 20px;
@@ -111,21 +116,22 @@
     <h2>All About Khadijah</h2>
     <p>Here’s what makes you special:</p>
     <ul>
-        <li><strong>Favorite Color:</strong> Purple</li>
-        <li><strong>Favorite Drink:</strong> Oreo Milkshake</li>
-        <li><strong>Favorite Food:</strong> Butter Chicken</li>
-        <li><strong>Loves:</strong> Laughing with friends and loved ones</li>
-        <li><strong>Enjoys:</strong> Sorting things out, bringing order to chaos</li>
-        <li><strong>Adorable Relationship:</strong> Loves her baby brother, despite his attitude</li>
-        <li><strong>Not a Fan of:</strong> Being called "baby girl"</li>
-        <li><strong>Work Habit:</strong> Loves talking to someone while working</li>
-        <li><strong>Travel Dream:</strong> Admires the beauty of New Zealand</li>
-        <li><strong>Favorite Sounds:</strong> Cherishes the soothing sounds of babies</li>
-        <li><strong>Favorite Place:</strong> Ooty, where nature meets peace</li>
-        <li><strong>Gets Mad When:</strong> Called "T-shirt wali aunty" 😂</li>
-        <li><strong>Grammar Enthusiast:</strong> A proud grammar Nazi, always correcting</li>
-        <li><strong>Chatterbox:</strong> A true yapper at heart, always ready to chat</li>
-        <li><strong>Makeup Lover:</strong> Especially enjoys lip gloss and eyeliner</li>
+        <li><img src="https://img.icons8.com/ios/50/000000/purple-heart.png" class="beach-icon" alt="Purple Heart Icon"/><strong>Favorite Color:</strong> Purple</li>
+        <li><img src="https://img.icons8.com/ios/50/000000/milkshake.png" class="beach-icon" alt="Milkshake Icon"/><strong>Favorite Drink:</strong> Oreo Milkshake</li>
+        <li><img src="https://img.icons8.com/ios/50/000000/chicken.png" class="beach-icon" alt="Butter Chicken Icon"/><strong>Favorite Food:</strong> Butter Chicken</li>
+        <li><img src="https://img.icons8.com/ios/50/000000/laughing.png" class="beach-icon" alt="Laughing Icon"/><strong>Loves:</strong> Laughing with friends and loved ones</li>
+        <li><img src="https://img.icons8.com/ios/50/000000/sort.png" class="beach-icon" alt="Sorting Icon"/><strong>Enjoys:</strong> Sorting things out, bringing order to chaos</li>
+        <li><img src="https://img.icons8.com/ios/50/000000/baby.png" class="beach-icon" alt="Baby Icon"/><strong>Adorable Relationship:</strong> Loves her baby brother, despite his attitude</li>
+        <li><img src="https://img.icons8.com/ios/50/000000/sad.png" class="beach-icon" alt="Not a Fan Icon"/><strong>Not a Fan of:</strong> Being called "baby girl"</li>
+        <li><img src="https://img.icons8.com/ios/50/000000/work.png" class="beach-icon" alt="Work Icon"/><strong>Work Habit:</strong> Loves talking to someone while working</li>
+        <li><img src="https://img.icons8.com/ios/50/000000/travel.png" class="beach-icon" alt="Travel Icon"/><strong>Travel Dream:</strong> Admires the beauty of New Zealand</li>
+        <li><img src="https://img.icons8.com/ios/50/000000/baby-sound.png" class="beach-icon" alt="Baby Sound Icon"/><strong>Favorite Sounds:</strong> Cherishes the soothing sounds of babies</li>
+        <li><img src="https://img.icons8.com/ios/50/000000/nature.png" class="beach-icon" alt="Nature Icon"/><strong>Favorite Place:</strong> Ooty, where nature meets peace</li>
+        <li><img src="https://img.icons8.com/ios/50/000000/mad.png" class="beach-icon" alt="Mad Icon"/><strong>Gets Mad When:</strong> Called "T-shirt wali aunty" 😂</li>
+        <li><img src="https://img.icons8.com/ios/50/000000/grammar.png" class="beach-icon" alt="Grammar Nazi Icon"/><strong>Grammar Enthusiast:</strong> A proud grammar Nazi, always correcting</li>
+        <li><img src="https://img.icons8.com/ios/50/000000/chat.png" class="beach-icon" alt="Chatterbox Icon"/><strong>Chatterbox:</strong> A true yapper at heart, always ready to chat</li>
+        <li><img src="https://img.icons8.com/ios/50/000000/makeup.png" class="beach-icon" alt="Makeup Icon"/><strong>Makeup Lover:</strong> Especially enjoys lip gloss and eyeliner</li>
+        <li><img src="https://img.icons8.com/ios/50/000000/sunset.png" class="beach-icon" alt="Sunset Icon"/><strong>Loves:</strong> Beaches and sunsets, where she feels at home</li>
     </ul>
 </div>
 
@@ -137,11 +143,4 @@
     // JavaScript to animate the compliments
     const compliments = document.querySelectorAll('.compliment');
     compliments.forEach((compliment, index) => {
-        compliment.style.animationDelay = `${index * 0.5}s`;
-        compliment.style.opacity = '1';
-        compliment.style.transform = 'translateY(0)';
-    });
-</script>
-
-</body>
-</html>
+        compliment.style.animationDelay = `${index *
