@@ -11,7 +11,6 @@
             background: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDR8fGJlYWNoJTIwYW5kJTIwc3Vuc2V0fGVufDB8fHx8MTYyNDUzMzMzMg&ixlib=rb-1.2.1&q=80&w=1080') no-repeat center center fixed;
             background-size: cover;
             color: #fff;
-            overflow: hidden;
         }
         header {
             height: 100vh;
@@ -20,59 +19,47 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            position: relative;
-            z-index: 1;
-            backdrop-filter: blur(5px);
         }
         header h1 {
             font-size: 4em;
             margin: 0;
-            color: #fff;
+            color: #9b59b6; /* Purple */
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-            animation: fadeIn 1.5s ease-in-out;
         }
         header p {
             font-size: 1.5em;
             margin-top: 10px;
             color: #e5e1f4;
-            animation: fadeIn 1.5s ease-in-out 0.5s;
         }
         .compliments {
             margin: 50px auto;
-            width: 90%;
-            max-width: 800px;
             text-align: center;
         }
         .compliment-button {
             font-size: 1.5em;
             padding: 15px 30px;
-            margin: 10px;
             border: none;
             border-radius: 10px;
-            background-color: #9b59b6;
+            background-color: #9b59b6; /* Purple */
             color: white;
             cursor: pointer;
-            transition: transform 0.2s, background-color 0.3s;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            transition: background-color 0.3s;
         }
         .compliment-button:hover {
-            background-color: #8e44ad;
-            transform: scale(1.1);
+            background-color: #8e44ad; /* Darker Purple */
         }
         .about {
             margin: 50px auto;
             padding: 30px;
             background: rgba(255, 255, 255, 0.2);
             border-radius: 15px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
             max-width: 800px;
             text-align: left;
         }
         .about h2 {
             font-size: 2.5em;
-            color: #9b59b6;
+            color: #9b59b6; /* Purple */
             text-align: center;
-            text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.7);
         }
         .about ul {
             list-style: none;
@@ -88,7 +75,7 @@
             content: '💜';
             position: absolute;
             left: 0;
-            font-size: 1em; /* Smaller hearts */
+            font-size: 1.2em; /* Smaller hearts */
             animation: blink 1s infinite;
         }
         @keyframes blink {
@@ -99,19 +86,11 @@
                 opacity: 0.5;
             }
         }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
         footer {
             text-align: center;
             padding: 20px;
             font-size: 1.2em;
-            color: #9b59b6;
-            position: relative;
-        }
-        footer p {
-            margin: 0;
+            color: #9b59b6; /* Purple */
         }
     </style>
 </head>
