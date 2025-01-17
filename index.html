@@ -3,136 +3,265 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A beautiful tribute page for Khadijah.">
     <title>For My Beautiful Princess Khadijah</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css"> <!-- Assuming styles.css contains the styles -->
-</head>
-<body>
-    <header>
-        <h1>For My Beautiful Princess Khadijah</h1>
-        <p>The epitome of beauty and grace, unmatched in the entire world.</p>
-    </header>
-
-    <main>
-        <section class="compliments">
-            <h2>Why You Are Amazing:</h2>
-            <button class="button" onclick="changeCompliment()" aria-label="Change Compliment">Khadijah, you are the most beautiful girl in the world.</button>
-        </section>
-
-        <section class="affirmations">
-            <h2>Daily Affirmation:</h2>
-            <button class="button" onclick="changeAffirmation()" aria-label="Change Affirmation">You are capable of achieving great things!</button>
-        </section>
-
-        <article class="about">
-            <h2>Fun Facts About You:</h2>
-            <p>Here are some delightful insights into your wonderful self:</p>
-            <ul>
-                <li><strong>Favorite Color:</strong> Purple</li>
-                <li><strong>Favorite Drink:</strong> Oreo Milkshake</li>
-                <li><strong>Favorite Food:</strong> Butter Chicken</li>
-                <li><strong>Loves:</strong> Laughing with friends and loved ones</li>
-                <li><strong>Enjoys:</strong> Sorting things out, bringing order to chaos</li>
-                <li><strong>Adorable Relationship:</strong> Loves her baby brother, despite his attitude</li>
-                <li><strong>Work Habit:</strong> Loves talking to someone while working</li>
-                <li><strong>Favorite Sounds:</strong> Cherishes the soothing sounds of babies</li>
-                <li><strong>Grammar Enthusiast:</strong> A proud grammar Nazi, always correcting</li>
-                <li><strong>Chatterbox:</strong> A true yapper at heart, always ready to chat</li>
-                <li><strong>Makeup Lover:</strong> Especially enjoys lip gloss and eyeliner</li>
-            </ul>
-        </article>
-
-        <section class="notes">
-            <h2>Notes for Khadijah</h2>
-            <textarea id="noteInput" placeholder="Write your note here..."></textarea>
-            <button onclick="addNote()">Add Note</button>
-            <div class="saved-notes" id="savedNotesContainer"></div>
-        </section>
-    </main>
-
-    <footer>
-        <p>Always thinking of you, your fan</p>
-        <p> Y <33</p>
-    </footer>
-
-    <script>
-        const compliments = [
-            "Khadijah, you are the most beautiful girl in the world.",
-            "In my eyes, you shine as the most stunning girl.",
-            "I truly enjoy every moment we spend talking Khadijah.",
-            "You're not just beautiful on the outside; your soul is radiant.",
-            "I miss you the moment our conversation ends.",
-            "Khadijah, your kindness and warmth is rare.",
-            "Every time I see you, my heart skips a beat.",
-            "You are wonderful!!",
-            "You are an annoying cow as well 🙄🙄🙄.",
-            "and sour pickle as well 🙄🙄🙄.",
-            "Moti Moti Moti 🙄🙄🙄."
-        ];
-
-        const affirmations = [
-            "You are capable of achieving great things!",
-            "You radiate positivity and light.",
-            "You are worthy of love and respect.",
-            "You are stronger than you think.",
-            "Every day is a fresh start.",
-            "You have the power to create change.",
-            "Your potential is limitless.",
-            "You are loved and cherished.",
-            "You bring joy to those around you."
-        ];
-
-        let currentComplimentIndex = 0;
-        let currentAffirmationIndex = 0;
-
-        function changeCompliment() {
-            const button = document.querySelector('.compliments .button');
-            currentComplimentIndex = (currentComplimentIndex + 1) % compliments.length; // Cycle through compliments
-            button.innerText = compliments[currentComplimentIndex]; // Change text of the button
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #f3e8ff; /* Light purple background */
+            color: #4b0082; /* Dark purple text */
         }
-
-        function changeAffirmation() {
-            const button = document.querySelector('.affirmations .button');
-            currentAffirmationIndex = (currentAffirmationIndex + 1) % affirmations.length; // Cycle through affirmations
-            button.innerText = affirmations[currentAffirmationIndex]; // Change text of the button
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: #9b59b6; /* Purple */
+            color: #fff;
         }
-
-        function addNote() {
-            const noteInput = document.getElementById('noteInput');
-            const savedNotesContainer = document.getElementById('savedNotesContainer');
-            const note = noteInput.value.trim();
-
-            if (note) {
-                const noteElement = document.createElement('div');
-                noteElement.className = 'saved-note';
-                noteElement.textContent = note;
-                savedNotesContainer.appendChild(noteElement);
-                noteInput.value = ''; // Clear input
-                saveNotes(); // Save notes to local storage
+        header h1 {
+            font-family: 'Dancing Script', cursive; /* Romantic font for the header */
+            font-size: 4em;
+            margin: 0;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+        header p {
+            font-family: 'Playfair Display', serif; /* Romantic font for the paragraph */
+            font-size: 1.5em;
+            margin-top: 10px;
+            color: #e5e1f4; /* Light purple */
+        }
+        .compliments, .affirmations {
+            margin: 50px auto;
+            text-align: center;
+        }
+        .button {
+            font-size: 1.5em;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            background-color: #6a2c91; /* Purple */
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #8e44ad; /* Darker Purple */
+        }
+        .about {
+            margin: 50px auto;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            max-width: 800px;
+            text-align: left;
+        }
+        .about h2 {
+            font-size: 2.5em;
+            color: #6a2c91; /* Purple */
+            text-align: center;
+        }
+        .about ul {
+            list-style: none;
+            padding: 0;
+        }
+        .about li {
+            font-size: 1.4em;
+            margin: 15px 0;
+            position: relative;
+            padding-left: 35px;
+        }
+        .about li:before {
+            content: '💜';
+            position: absolute;
+            left: 0;
+            font-size: 1.2em; /* Smaller hearts */
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
             }
         }
-
-        function saveNotes() {
-            const savedNotesContainer = document.getElementById('savedNotesContainer');
-            const notes = Array.from(savedNotesContainer.children).map(note => note.textContent);
-            localStorage.setItem('notes', JSON.stringify(notes)); // Save notes to local storage
+        .notes {
+            margin: 50px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            max-width: 800px;
         }
-
-        function loadNotes() {
-            const savedNotesContainer = document.getElementById('savedNotesContainer');
-            const notes = JSON.parse(localStorage.getItem('notes')) || [];
-            notes.forEach(note => {
-                const noteElement = document.createElement('div');
-                noteElement.className = 'saved-note';
-                noteElement.textContent = note;
-                savedNotesContainer.appendChild(noteElement);
-            });
+        .notes h2 {
+            font-size: 2.5em;
+            color: #6a2c91; /* Purple */
+            text-align: center;
         }
+        .notes textarea {
+            width: 100%;
+            height: 100px;
+            border: none;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 1.2em;
+        }
+        .notes button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            background-color: #6a2c91; /* Purple */
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .notes button:hover {
+            background-color: #8e44ad; /* Darker Purple */
+        }
+        .saved-notes {
+            margin-top: 20px;
+            max-height: 200px;
+            overflow-y: auto;
+            padding: 10px;
+            border: 1px solid #6a2c91; /* Purple border */
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.8);
+        }
+        .saved-note {
+            padding: 5px 0;
+            border-bottom: 1px solid #dcdcdc;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 1.2em;
+            color: #4b0082; /* Dark purple */
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>For My Beautiful Princess Khadijah</h1>
+    <p>The epitome of beauty and grace, unmatched in the entire world.</p>
+</header>
 
-        window.onload = loadNotes; // Load notes when the page is loaded
-    </script>
-</body>
-</html>
+<section class="compliments">
+    <h2>Why You Are Amazing:</h2>
+    <button class="button" onclick="changeCompliment()">Khadijah, you are the most beautiful girl in the world.</button>
+</section>
+
+<section class="affirmations">
+    <h2>Daily Affirmation:</h2>
+    <button class="button" onclick="changeAffirmation()">You are capable of achieving great things!</button>
+</section>
+
+<div class="about">
+    <h2>Fun Facts About You:</h2>
+    <p>Here are some delightful insights into your wonderful self:</p>
+    <ul>
+        <li><strong>Favorite Color:</strong> Purple</li>
+        <li><strong>Favorite Drink:</strong> Oreo Milkshake</li>
+        <li><strong>Favorite Food:</strong> Butter Chicken</li>
+        <li><strong>Loves:</strong> Laughing with friends and loved ones</li>
+        <li><strong>Enjoys:</strong> Sorting things out, bringing order to chaos</li>
+        <li><strong>Adorable Relationship:</strong> Loves her baby brother, despite his attitude</li>
+        <li><strong>Work Habit:</strong> Loves talking to someone while working</li>
+        <li><strong>Favorite Sounds:</strong> Cherishes the soothing sounds of babies</li>
+        <li><strong>Grammar Enthusiast:</strong> A proud grammar Nazi, always correcting</li>
+        <li><strong>Chatterbox:</strong> A true yapper at heart, always ready to chat</li>
+        <li><strong>Makeup Lover:</strong> Especially enjoys lip gloss and eyeliner</li>
+    </ul>
+</div>
+
+<div class="notes">
+    <h2>Notes for Khadijah</h2>
+    <textarea id="noteInput" placeholder="Write your note here..."></textarea>
+    <button onclick="addNote()">Add Note</button>
+    <div class="saved-notes" id="savedNotesContainer"></div>
+</div>
+
+<footer>
+    <p>Always thinking of you, your fan</p>
+    <p> Y <33</p>
+</footer>
+
+<script>
+    const compliments = [
+        "Khadijah, you are the most beautiful girl in the world.",
+        "In my eyes, you shine as the most stunning girl.",
+        "I truly enjoy every moment we spend talking Khadijah.",
+        "You're not just beautiful on the outside; your soul is radiant.",
+        "I miss you the moment our conversation ends.",
+        "Khadijah, your kindness and warmth is rare.",
+        "Every time I see you, my heart skips a beat.",
+        "You are wonderful!!",
+        "You are an annoying cow as well 🙄🙄🙄.",
+        "and sour pickle as well 🙄🙄🙄.",
+        "Moti Moti Moti 🙄🙄🙄."
+    ];
+    
+    const affirmations = [
+        "You are capable of achieving great things!",
+        "You radiate positivity and light.",
+        "You are worthy of love and respect.",
+        "You are stronger than you think.",
+        "Every day is a fresh start.",
+        "You have the power to create change.",
+        "Your potential is limitless.",
+        "You are loved and cherished.",
+        "You bring joy to those around you."
+    ];
+    
+    let currentComplimentIndex = 0;
+    let currentAffirmationIndex = 0;
+
+    function changeCompliment() {
+        const button = document.querySelector('.compliments .button');
+        currentComplimentIndex = (currentComplimentIndex + 1) % compliments.length; // Cycle through compliments
+        button.innerText = compliments[currentComplimentIndex]; // Change text of the button
+    }
+
+    function changeAffirmation() {
+        const button = document.querySelector('.affirmations .button');
+        currentAffirmationIndex = (currentAffirmationIndex + 1) % affirmations.length; // Cycle through affirmations
+        button.innerText = affirmations[currentAffirmationIndex]; // Change text of the button
+    }
+
+    function addNote() {
+        const noteInput = document.getElementById('noteInput');
+        const savedNotesContainer = document.getElementById('savedNotesContainer');
+        const note = noteInput.value.trim();
+
+        if (note) {
+            const noteElement = document.createElement('div');
+            noteElement.className = 'saved-note';
+            noteElement.textContent = note;
+            savedNotesContainer.appendChild(noteElement);
+            noteInput.value = ''; // Clear input
+            saveNotes(); // Save notes to local storage
+        }
+    }
+
+    function saveNotes() {
+        const savedNotesContainer = document.getElementById('savedNotesContainer');
+        const notes = Array.from(savedNotesContainer.children).map(note => note.textContent);
+        localStorage.setItem('notes', JSON.stringify(notes)); // Save notes to local storage
+    }
+
+    function loadNotes() {
+        const savedNotesContainer = document.getElementById('savedNotesContainer');
+        const notes = JSON.parse(localStorage.getItem('notes')) || [];
+        notes.forEach(note => {
+            const noteElement = document.createElement('div');
+            noteElement.className = 'saved-note';
+            noteElement.textContent = note;
+            savedNotesContainer.appendChild(noteElement);
+        });
+    }
+
+    window.onload = loadNotes; // Load notes when the page is loaded
+</script>
