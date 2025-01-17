@@ -8,7 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css"> </head>
+    <link rel="stylesheet" href="styles.css"> 
+</head>
 <body>
     <header>
         <h1>For My Beautiful Princess Khadijah</h1>
@@ -141,6 +142,7 @@
 
         darkModeToggle.addEventListener('change', () => {
             body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', body.classList.contains('dark-mode'));
         });
 
         window.onload = () => {
@@ -151,10 +153,6 @@
                 darkModeToggle.checked = true;
             }
         };
-
-        darkModeToggle.addEventListener('change', () => {
-            localStorage.setItem('darkMode', darkModeToggle.checked);
-        });
 
     </script>
 </body>
