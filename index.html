@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,88 +23,210 @@
             color: #fff;
         }
         header h1 {
-            font-family: 'Dancing Script', cursive; /* Romantic script font for main title */
-            font-size: 4rem;
+            font-family: 'Dancing Script', cursive; /* Romantic font for the header */
+            font-size: 4em;
+            margin: 0;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
         }
         header p {
-            font-size: 1.5rem;
-            margin-top: 1rem;
+            font-family: 'Playfair Display', serif; /* Romantic font for the paragraph */
+            font-size: 1.5em;
+            margin-top: 10px;
+            color: #e5e1f4; /* Light purple */
         }
-        section {
-            padding: 3rem;
+        .compliments, .affirmations, .birthday, .special-day, .book-section {
+            margin: 50px auto;
             text-align: center;
         }
         .button {
-            background-color: #8e44ad;
-            color: white;
+            font-size: 1.5em;
+            padding: 15px 30px;
             border: none;
-            padding: 1rem 2rem;
-            font-size: 1.2rem;
+            border-radius: 10px;
+            background-color: #6a2c91; /* Purple */
+            color: white;
             cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s;
         }
         .button:hover {
-            background-color: #732d91;
+            background-color: #8e44ad; /* Darker Purple */
+        }
+        .about {
+            margin: 50px auto;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            max-width: 800px;
+            text-align: left;
+        }
+        .about h2 {
+            font-size: 2.5em;
+            color: #6a2c91; /* Purple */
+            text-align: center;
+        }
+        .about ul {
+            list-style: none;
+            padding: 0;
+        }
+        .about li {
+            font-size: 1.4em;
+            margin: 15px 0;
+            position: relative;
+            padding-left: 35px;
+        }
+        .about li:before {
+            content: '💜';
+            position: absolute;
+            left: 0;
+            font-size: 1.2em; /* Smaller hearts */
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+        }
+        .notes {
+            margin: 50px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            max-width: 800px;
+        }
+        .notes h2 {
+            font-size: 2.5em;
+            color: #6a2c91; /* Purple */
+            text-align: center;
+        }
+        .notes textarea {
+            width: 100%;
+            height: 100px;
+            border: none;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 1.2em;
+        }
+        .notes button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            background-color: #6a2c91; /* Purple */
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .notes button:hover {
+            background-color: #8e44ad; /* Darker Purple */
+        }
+        .saved-notes {
+            margin-top: 20px;
+            max-height: 200px;
+            overflow-y: auto;
+            padding: 10px;
+            border: 1px solid #6a2c91; /* Purple border */
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.8);
+        }
+        .saved-note {
+            padding: 5px 0;
+            border-bottom: 1px solid #dcdcdc;
         }
         footer {
             text-align: center;
-            padding: 1rem;
-            background-color: #9b59b6;
-            color: white;
-        }
-        footer p {
-            margin: 0;
+            padding: 20px;
+            font-size: 1.2em;
+            color: #4b0082; /* Dark purple */
         }
     </style>
 </head>
 <body>
-
 <header>
     <h1>For My Beautiful Princess Khadijah</h1>
-    <p>Your love makes my world brighter!</p>
+    <p>The epitome of beauty and grace, unmatched in the entire world.</p>
 </header>
 
-<!-- Original Content Section -->
-<section>
-    <h2>Compliments for Khadijah</h2>
-    <p>"You are a beautiful soul, inside and out. Your smile lights up every room."</p>
-    <p>"You are more amazing than words can express, Khadijah."</p>
-    <p>"The way you care for everyone around you is truly inspiring."</p>
-    <button class="button" onclick="alert('More compliments coming soon!')">See More Compliments</button>
+<section class="compliments">
+    <h2>Why You Are Amazing:</h2>
+    <button class="button" onclick="changeCompliment()">Khadijah, you are the most beautiful girl in the world.</button>
 </section>
 
-<section>
-    <h2>Daily Affirmation</h2>
-    <p>"You are strong, capable, and deserving of all the love and success life has to offer."</p>
-    <button class="button" onclick="alert('You are amazing!')">Get More Affirmations</button>
+<section class="affirmations">
+    <h2>Daily Affirmation:</h2>
+    <button class="button" onclick="changeAffirmation()">You are capable of achieving great things!</button>
 </section>
 
-<section>
-    <h2>Fun Facts About Khadijah</h2>
-    <p>"Did you know that Khadijah is a true boss lady who never gives up on her dreams?"</p>
-    <p>"Her favorite color is purple, and itâ€™s the perfect color for someone as unique as her!"</p>
-    <p>"Khadijah loves Oreo milkshakes and butter chicken â€“ a perfect combination of sweet and savory!"</p>
-    <button class="button" onclick="alert('More fun facts soon!')">Learn More Fun Facts</button>
+<section class="birthday">
+    <h2>Special Birthday Message</h2>
+    <button class="button" onclick="changeBirthday()">Wishing you a day filled with love, laughter, and joy!</button>
 </section>
 
-<!-- New Content Section - Special Occasions -->
-<section>
-    <h2>Birthday Wishes for Khadijah</h2>
-    <p>"Happy Birthday to the love of my life! May this year bring you all the happiness your heart desires."</p>
-    <button class="button" onclick="alert('More birthday surprises coming soon!')">Celebrate Khadijah's Birthday</button>
+<section class="special-day">
+    <h2>For Your Special Day</h2>
+    <button class="button" onclick="changeSpecialDay()">Today is your day, Khadijah! Let it be as special as you are.</button>
 </section>
 
-<section>
-    <h2>2 Wishes</h2>
-    <p>"Everyy."</p>
-    <button class="button" onclick="alert('More ng soon!')">Celebrate Our ??</button>
+<section class="book-section">
+    <h2>Book Recommendation for You</h2>
+    <p>Reading a beautiful book together is a dream I'd love to share with you someday.</p>
+    <button class="button" onclick="changeBook()">Read with Me!</button>
 </section>
 
-<!-- Footer -->
+<div class="about">
+    <h2>Fun Facts About You:</h2>
+    <p>Here are some delightful insights into your wonderful self:</p>
+    <ul>
+        <li><strong>Favorite Color:</strong> Purple</li>
+        <li><strong>Favorite Drink:</strong> Oreo Milkshake</li>
+        <li><strong>Favorite Food:</strong> Butter Chicken</li>
+        <li><strong>Loves:</strong> Laughing with friends and loved ones</li>
+        <li><strong>Enjoys:</strong> Sorting things out, bringing order to chaos</li>
+        <li><strong>Adorable Relationship:</strong> Loves her baby brother, despite his attitude</li>
+        <li><strong>Work Habit:</strong> Loves talking to someone while working</li>
+        <li><strong>Favorite Sounds:</strong> Cherishes the soothing sounds of babies</li>
+        <li><strong>Grammar Enthusiast:</strong> A proud grammar Nazi, always correcting</li>
+        <li><strong>Chatterbox:</strong> A true yapper at heart, always ready to chat</li>
+        <li><strong>Makeup Lover:</strong> Especially enjoys lip gloss and eyeliner</li>
+    </ul>
+</div>
+
+<div class="notes">
+    <h2>Notes for Khadijah</h2>
+    <textarea id="noteInput" placeholder="Write your note here..."></textarea>
+    <button onclick="addNote()">Add Note</button>
+    <div class="saved-notes" id="savedNotesContainer"></div>
+</div>
+
 <footer>
-    <p>With all Love.</p>
+    <p>Always thinking of you, your fan</p>
+    <p> Y <33</p>
 </footer>
 
-</body>
-</html>
+<script>
+    const compliments = [
+        "Khadijah, you are the most beautiful girl in the world.",
+        "In my eyes, you shine as the most stunning girl.",
+        "I truly enjoy every moment we spend talking Khadijah.",
+        "You're not just beautiful on the outside; your soul is radiant.",
+        "I miss you the moment our conversation ends.",
+        "Khadijah, your kindness and warmth is rare.",
+        "Every time I see you, my heart skips a beat.",
+        "You are wonderful!!",
+        "You are an annoying cow as well 🙄🙄🙄.",
+        "and sour pickle as well 🙄🙄🙄.",
+        "Moti Moti Moti 🙄🙄🙄."
+    ];
+    
+    const affirmations = [
+        "You are capable of achieving great things!",
+        "You radiate positivity and light.",
+        "You are worthy of love and respect.",
+        "You are stronger than you think.",
+        "Every day is a fresh start.",
+        "You have the power to create change.",
+        "Your potential is limitless.",
+        "You are loved and cherished.",
+        "
