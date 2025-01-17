@@ -3,11 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A beautiful tribute page for Khadijah.">
     <title>For My Beautiful Princess Khadijah</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css"> 
 </head>
 <body>
@@ -23,12 +19,12 @@
     <main>
         <section class="compliments">
             <h2>Why You Are Amazing:</h2>
-            <button class="button" onclick="changeCompliment()" aria-label="Change Compliment">Khadijah, you are the most beautiful girl in the world.</button>
+            <button class="button" onclick="changeCompliment()">Khadijah, you are the most beautiful girl in the world.</button>
         </section>
 
         <section class="affirmations">
             <h2>Daily Affirmation:</h2>
-            <button class="button" onclick="changeAffirmation()" aria-label="Change Affirmation">You are capable of achieving great things!</button>
+            <button class="button" onclick="changeAffirmation()">You are capable of achieving great things!</button>
         </section>
 
         <article class="about">
@@ -63,97 +59,28 @@
     </footer>
 
     <script>
-        const compliments = [
-            "Khadijah, you are the most beautiful girl in the world.",
-            "In my eyes, you shine as the most stunning girl.",
-            "I truly enjoy every moment we spend talking Khadijah.",
-            "You're not just beautiful on the outside; your soul is radiant.",
-            "I miss you the moment our conversation ends.",
-            "Khadijah, your kindness and warmth is rare.",
-            "Every time I see you, my heart skips a beat.",
-            "You are wonderful!!",
-            "You are an annoying cow as well 🙄🙄🙄.",
-            "and sour pickle as well 🙄🙄🙄.",
-            "Moti Moti Moti 🙄🙄🙄."
-        ];
-
-        const affirmations = [
-            "You are capable of achieving great things!",
-            "You radiate positivity and light.",
-            "You are worthy of love and respect.",
-            "You are stronger than you think.",
-            "Every day is a fresh start.",
-            "You have the power to create change.",
-            "Your potential is limitless.",
-            "You are loved and cherished.",
-            "You bring joy to those around you."
-        ];
-
-        let currentComplimentIndex = 0;
-        let currentAffirmationIndex = 0;
-
-        function changeCompliment() {
-            const button = document.querySelector('.compliments .button');
-            currentComplimentIndex = (currentComplimentIndex + 1) % compliments.length; // Cycle through compliments
-            button.innerText = compliments[currentComplimentIndex]; // Change text of the button
-        }
-
-        function changeAffirmation() {
-            const button = document.querySelector('.affirmations .button');
-            currentAffirmationIndex = (currentAffirmationIndex + 1) % affirmations.length; // Cycle through affirmations
-            button.innerText = affirmations[currentAffirmationIndex]; // Change text of the button
-        }
-
-        function addNote() {
-            const noteInput = document.getElementById('noteInput');
-            const savedNotesContainer = document.getElementById('savedNotesContainer');
-            const note = noteInput.value.trim();
-
-            if (note) {
-                const noteElement = document.createElement('div');
-                noteElement.className = 'saved-note';
-                noteElement.textContent = note;
-                savedNotesContainer.appendChild(noteElement);
-                noteInput.value = ''; // Clear input
-                saveNotes(); // Save notes to local storage
-            }
-        }
-
-        function saveNotes() {
-            const savedNotesContainer = document.getElementById('savedNotesContainer');
-            const notes = Array.from(savedNotesContainer.children).map(note => note.textContent);
-            localStorage.setItem('notes', JSON.stringify(notes)); // Save notes to local storage
-        }
-
-        function loadNotes() {
-            const savedNotesContainer = document.getElementById('savedNotesContainer');
-            const notes = JSON.parse(localStorage.getItem('notes')) || [];
-            notes.forEach(note => {
-                const noteElement = document.createElement('div');
-                noteElement.className = 'saved-note';
-                noteElement.textContent = note;
-                savedNotesContainer.appendChild(noteElement);
-            });
-        }
+        // ... (your compliment and affirmation arrays) ...
 
         // Dark Mode Toggle
         const darkModeToggle = document.getElementById('darkModeToggle');
         const body = document.body;
 
+        // Check for existing dark mode preference in local storage
+        const isDarkModeEnabled = localStorage.getItem('darkMode') === 'true'; 
+
+        // Apply dark mode if it's enabled or if the user prefers it
+        if (isDarkModeEnabled || window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            body.classList.add('dark-mode');
+            darkModeToggle.checked = true;
+        }
+
         darkModeToggle.addEventListener('change', () => {
             body.classList.toggle('dark-mode');
-            localStorage.setItem('darkMode', body.classList.contains('dark-mode'));
+            localStorage.setItem('darkMode', body.classList.contains('dark-mode')); 
         });
 
-        window.onload = () => {
-            loadNotes();
-            // Check if dark mode is enabled in local storage
-            if (localStorage.getItem('darkMode') === 'true') {
-                body.classList.add('dark-mode');
-                darkModeToggle.checked = true;
-            }
-        };
-
+        // ... (your other JavaScript functions) ...
     </script>
 </body>
 </html>
+
