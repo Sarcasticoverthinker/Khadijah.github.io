@@ -24,148 +24,88 @@
             color: #fff;
         }
         header h1 {
-            font-family: 'Dancing Script', cursive; /* Romantic font for the header */
-            font-size: 4em;
-            margin: 0;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+            font-family: 'Dancing Script', cursive; /* Romantic script font for main title */
+            font-size: 4rem;
         }
         header p {
-            font-family: 'Playfair Display', serif; /* Romantic font for the paragraph */
-            font-size: 1.5em;
-            margin-top: 10px;
-            color: #e5e1f4; /* Light purple */
+            font-size: 1.5rem;
+            margin-top: 1rem;
         }
-        nav {
-            display: flex;
-            justify-content: center;
-            background: #6a2c91;
-            padding: 10px 0;
-        }
-        nav a {
-            margin: 0 15px;
-            color: #fff;
-            font-size: 1.2em;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        nav a:hover {
-            color: #ffd700;
-        }
-        .content-section {
-            display: none;
-            padding: 30px;
-            max-width: 800px;
-            margin: auto;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 15px;
-        }
-        .content-section.active {
-            display: block;
-        }
-        .compliments, .affirmations {
-            margin: 50px auto;
+        section {
+            padding: 3rem;
             text-align: center;
         }
         .button {
-            font-size: 1.5em;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 10px;
-            background-color: #6a2c91; /* Purple */
+            background-color: #8e44ad;
             color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
             cursor: pointer;
-            transition: background-color 0.3s;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
         }
         .button:hover {
-            background-color: #8e44ad; /* Darker Purple */
-        }
-        .about ul, .notes .saved-notes {
-            list-style: none;
-            padding: 0;
+            background-color: #732d91;
         }
         footer {
             text-align: center;
-            padding: 20px;
-            font-size: 1.2em;
-            color: #4b0082; /* Dark purple */
+            padding: 1rem;
+            background-color: #9b59b6;
+            color: white;
+        }
+        footer p {
+            margin: 0;
         }
     </style>
 </head>
 <body>
+
 <header>
     <h1>For My Beautiful Princess Khadijah</h1>
-    <p>Select an occasion to begin!</p>
+    <p>Your love makes my world brighter!</p>
 </header>
 
-<nav>
-    <a href="#" onclick="showSection('general')">General</a>
-    <a href="#" onclick="showSection('birthday')">Birthday</a>
-    <a href="#" onclick="showSection('specialDay')">Special Day</a>
-</nav>
-
-<section id="general" class="content-section active">
-    <div class="compliments">
-        <h2>Why You Are Amazing:</h2>
-        <button class="button" onclick="changeCompliment()">Khadijah, you are the most beautiful girl in the world.</button>
-    </div>
-    <div class="affirmations">
-        <h2>Daily Affirmation:</h2>
-        <button class="button" onclick="changeAffirmation()">You are capable of achieving great things!</button>
-    </div>
+<!-- Original Content Section -->
+<section>
+    <h2>Compliments for Khadijah</h2>
+    <p>"You are a beautiful soul, inside and out. Your smile lights up every room."</p>
+    <p>"You are more amazing than words can express, Khadijah."</p>
+    <p>"The way you care for everyone around you is truly inspiring."</p>
+    <button class="button" onclick="alert('More compliments coming soon!')">See More Compliments</button>
 </section>
 
-<section id="birthday" class="content-section">
-    <h2>Happy Birthday, Khadijah!</h2>
-    <p>Today is all about celebrating you, the most amazing person in the world.</p>
-    <ul>
-        <li>ðŸŽ‰ Wishing you all the happiness in the world!</li>
-        <li>ðŸŽ‚ Your smile lights up my world!</li>
-        <li>ðŸ’œ Thank you for being you. You deserve all the love!</li>
-    </ul>
+<section>
+    <h2>Daily Affirmation</h2>
+    <p>"You are strong, capable, and deserving of all the love and success life has to offer."</p>
+    <button class="button" onclick="alert('You are amazing!')">Get More Affirmations</button>
 </section>
 
-<section id="specialDay" class="content-section">
-    <h2>For Your Special Day</h2>
-    <p>This is a small reminder that you make every day special just by being you.</p>
-    <button class="button">You're my favorite person in the world!</button>
+<section>
+    <h2>Fun Facts About Khadijah</h2>
+    <p>"Did you know that Khadijah is a true boss lady who never gives up on her dreams?"</p>
+    <p>"Her favorite color is purple, and itâ€™s the perfect color for someone as unique as her!"</p>
+    <p>"Khadijah loves Oreo milkshakes and butter chicken â€“ a perfect combination of sweet and savory!"</p>
+    <button class="button" onclick="alert('More fun facts soon!')">Learn More Fun Facts</button>
 </section>
 
+<!-- New Content Section - Special Occasions -->
+<section>
+    <h2>Birthday Wishes for Khadijah</h2>
+    <p>"Happy Birthday to the love of my life! May this year bring you all the happiness your heart desires."</p>
+    <button class="button" onclick="alert('More birthday surprises coming soon!')">Celebrate Khadijah's Birthday</button>
+</section>
+
+<section>
+    <h2>2 Wishes</h2>
+    <p>"Everyy."</p>
+    <button class="button" onclick="alert('More anniversary surprises coming soon!')">Celebrate Our Anniversary</button>
+</section>
+
+<!-- Footer -->
 <footer>
-    <p>Always thinking of you, Y <33</p>
+    <p>With all Love.</p>
 </footer>
 
-<script>
-    const compliments = [
-        "Khadijah, you are the most beautiful girl in the world.",
-        "In my eyes, you shine as the most stunning girl.",
-        "I truly enjoy every moment we spend talking Khadijah.",
-        "You're not just beautiful on the outside; your soul is radiant."
-    ];
-
-    const affirmations = [
-        "You are capable of achieving great things!",
-        "You radiate positivity and light.",
-        "You are worthy of love and respect."
-    ];
-
-    function showSection(sectionId) {
-        document.querySelectorAll('.content-section').forEach(section => {
-            section.classList.remove('active');
-        });
-        document.getElementById(sectionId).classList.add('active');
-    }
-
-    let currentComplimentIndex = 0;
-    function changeCompliment() {
-        currentComplimentIndex = (currentComplimentIndex + 1) % compliments.length;
-        document.querySelector('.compliments .button').innerText = compliments[currentComplimentIndex];
-    }
-
-    let currentAffirmationIndex = 0;
-    function changeAffirmation() {
-        currentAffirmationIndex = (currentAffirmationIndex + 1) % affirmations.length;
-        document.querySelector('.affirmations .button').innerText = affirmations[currentAffirmationIndex];
-    }
-</script>
 </body>
 </html>
