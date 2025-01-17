@@ -2,8 +2,8 @@ body {
     font-family: 'Playfair Display', serif;
     margin: 0;
     padding: 20px;
-    color: #333; /* Default text color */
-    background-color: #f4f4f4; /* Default background color */
+    color: #333; 
+    background-color: #f4f4f4; 
 }
 
 body.dark-mode {
@@ -12,19 +12,11 @@ body.dark-mode {
 }
 
 h1, h2 {
-    color: #555; 
-}
-
-body.dark-mode h1, body.dark-mode h2 {
-    color: #ddd; 
+    color: inherit; /* Inherit color from the body */
 }
 
 p {
-    color: #666; 
-}
-
-body.dark-mode p {
-    color: #aaa; 
+    color: inherit; 
 }
 
 .button {
@@ -36,10 +28,52 @@ body.dark-mode p {
 }
 
 body.dark-mode .button {
-    background-color: #007bff; 
-    color: #fff; 
+    background-color: #007bff; /* Adjust this if needed */
 }
 
-/* ... add more specific styles for other elements ... */
+/* ... Add more specific styles for other elements as needed ... */
 
-/* ... dark mode toggle styles (from previous example) ... */
+/* Dark Mode Toggle Styles */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    border-radius: 34px;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    border-radius: 50%;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
