@@ -229,4 +229,85 @@
         "You have the power to create change.",
         "Your potential is limitless.",
         "You are loved and cherished.",
-        "
+        "You are deserving of every good thing that comes your way.",
+        "You inspire others just by being yourself.",
+        "Believe in yourself, because you are incredible."
+    ];
+
+    const birthdays = [
+        "Wishing you a day filled with love, laughter, and joy!",
+        "May this year bring you endless happiness and beautiful moments.",
+        "Happy Birthday, my beautiful Khadijah! May all your dreams come true.",
+        "On your special day, I wish you all the joy your heart can hold!",
+        "Another year older, another year wiser. Happy Birthday, love!",
+        "To the most beautiful girl in the world, may this year be your best yet!",
+        "May every moment of your birthday be as special as you are to me.",
+        "Here’s to a year of love, laughter, and happiness, Khadijah!",
+        "Happy Birthday, my love! Enjoy every single moment!"
+    ];
+
+    const specialDays = [
+        "Today is your day, Khadijah! Let it be as special as you are.",
+        "May today be filled with happiness and everything that makes you smile.",
+        "Cheers to a day that celebrates YOU, Khadijah!",
+        "May today bring you closer to all your dreams and aspirations.",
+        "Here's to making beautiful memories today. Enjoy every moment!",
+        "Sending you love and good vibes on your special day, Khadijah!",
+        "May today be just as magical as you are.",
+        "On your special day, may all your wishes come true.",
+        "Today, let's celebrate you and everything that makes you wonderful!"
+    ];
+
+    const books = [
+        "I would love to read a beautiful book with you one day.",
+        "Reading together would be an amazing experience, wouldn't it?",
+        "How about we explore the world through books? I can’t wait to read with you.",
+        "Books are windows to different worlds; let’s discover them together.",
+        "Imagine reading a romantic novel while holding hands – that’s a dream I hope to live.",
+        "One day, we’ll have our little reading corner. Let’s dream big!",
+        "You and me, sharing a book, sharing our hearts. Can’t wait.",
+        "How about a cozy reading night together? You, me, and a good book.",
+        "A book is a perfect gift, and I want to share them with you!"
+    ];
+
+    function changeCompliment() {
+        const randomIndex = Math.floor(Math.random() * compliments.length);
+        document.querySelector('.compliments button').innerText = compliments[randomIndex];
+    }
+
+    function changeAffirmation() {
+        const randomIndex = Math.floor(Math.random() * affirmations.length);
+        document.querySelector('.affirmations button').innerText = affirmations[randomIndex];
+    }
+
+    function changeBirthday() {
+        const randomIndex = Math.floor(Math.random() * birthdays.length);
+        document.querySelector('.birthday button').innerText = birthdays[randomIndex];
+    }
+
+    function changeSpecialDay() {
+        const randomIndex = Math.floor(Math.random() * specialDays.length);
+        document.querySelector('.special-day button').innerText = specialDays[randomIndex];
+    }
+
+    function changeBook() {
+        const randomIndex = Math.floor(Math.random() * books.length);
+        document.querySelector('.book-section button').innerText = books[randomIndex];
+    }
+
+    // Notes functionality
+    function addNote() {
+        const noteInput = document.getElementById('noteInput').value;
+        if (noteInput.trim() !== "") {
+            const savedNotesContainer = document.getElementById('savedNotesContainer');
+            const newNote = document.createElement('div');
+            newNote.classList.add('saved-note');
+            newNote.textContent = noteInput;
+            savedNotesContainer.appendChild(newNote);
+            document.getElementById('noteInput').value = ''; // Clear input after saving
+        }
+    }
+</script>
+
+</body>
+</html>
