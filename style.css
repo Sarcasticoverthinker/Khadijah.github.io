@@ -3,6 +3,10 @@ body {
     font-family: 'Poppins', sans-serif;
     background: #f3e8ff; /* Light purple background */
     color: #4b0082; /* Dark purple text */
+    background-image: url('https://www.transparenttextures.com/patterns/heart-fabric.png'); /* Soft heart-shaped background */
+    background-size: 40px 40px;
+    background-attachment: fixed;
+    scroll-behavior: smooth; /* Smooth scrolling effect */
 }
 
 header {
@@ -43,11 +47,30 @@ header p {
     background-color: #6a2c91; /* Purple */
     color: white;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 .button:hover {
     background-color: #8e44ad; /* Darker Purple */
+    transform: scale(1.1); /* Enlarges button on hover */
+}
+
+.button:active {
+    transform: scale(1); /* Shrinks button back after click */
+}
+
+.button span {
+    display: inline-block;
+    animation: heartbeat 1s infinite; /* Adding heartbeat animation to text */
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2); /* Pulsing effect */
+    }
 }
 
 .about {
@@ -152,4 +175,13 @@ footer {
     padding: 20px;
     font-size: 1.2em;
     color: #4b0082; /* Dark purple */
+}
+
+footer a {
+    color: #6a2c91; /* Purple */
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #8e44ad; /* Darker Purple */
 }
