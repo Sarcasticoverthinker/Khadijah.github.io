@@ -53,6 +53,55 @@
     <p> Y <33</p>
 </footer>
 
-<script src="scripts.js"></script>
+<script>
+// JavaScript functions to handle compliments and affirmations
+
+let compliments = [
+    "Khadijah, you are the most beautiful girl in the world.",
+    "You are a true gem, and I am so lucky to know you.",
+    "Every moment with you is magical.",
+    "Your smile lights up my world.",
+    "Your kindness knows no bounds."
+];
+
+let affirmations = [
+    "You are capable of achieving great things!",
+    "You have the strength to conquer anything.",
+    "Believe in yourself, you are unstoppable!",
+    "Every challenge you face is an opportunity to grow.",
+    "You are deserving of all the love and success coming your way."
+];
+
+let complimentIndex = 0;
+let affirmationIndex = 0;
+
+function changeCompliment() {
+    complimentIndex = (complimentIndex + 1) % compliments.length;
+    document.querySelector(".compliments button").textContent = compliments[complimentIndex];
+}
+
+function changeAffirmation() {
+    affirmationIndex = (affirmationIndex + 1) % affirmations.length;
+    document.querySelector(".affirmations button").textContent = affirmations[affirmationIndex];
+}
+
+// JavaScript function for notes
+
+function addNote() {
+    const noteInput = document.getElementById('noteInput');
+    const noteText = noteInput.value.trim();
+    
+    if (noteText) {
+        const savedNotesContainer = document.getElementById('savedNotesContainer');
+        const noteElement = document.createElement('p');
+        noteElement.textContent = noteText;
+        savedNotesContainer.appendChild(noteElement);
+        noteInput.value = ''; // Clear the input field after adding the note
+    } else {
+        alert("Please write something before adding a note.");
+    }
+}
+</script>
+
 </body>
 </html>
