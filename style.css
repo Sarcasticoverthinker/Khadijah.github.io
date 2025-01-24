@@ -77,12 +77,12 @@ header p {
     padding-left: 35px;
 }
 
-.about li:before {
+.about li::before {
     content: '💜';
     position: absolute;
     left: 0;
-    font-size: 1.2em; /* Smaller hearts */
-    animation: blink 1s infinite;
+    font-size: 1.5em; /* Slightly bigger hearts */
+    animation: blink 1s infinite; /* Make the hearts blink */
 }
 
 @keyframes blink {
